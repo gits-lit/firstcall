@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import Map from './components/Map';
+
+
+
 
 ReactDOM.render(
-  <h1>Hello World</h1>,
+  <Map sideBarVis={false} />,
   document.getElementById('root')
 );
