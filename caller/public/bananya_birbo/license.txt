@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bananya Birbo
+* source:	https://sketchfab.com/3d-models/bananya-birbo-900ce1ec328e486296cfee70b9b13a45
+* author:	CzernO (https://sketchfab.com/czernobog)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bananya Birbo" (https://sketchfab.com/3d-models/bananya-birbo-900ce1ec328e486296cfee70b9b13a45) by CzernO (https://sketchfab.com/czernobog) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
