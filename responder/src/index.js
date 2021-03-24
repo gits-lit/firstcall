@@ -8,14 +8,14 @@ import {
 import './index.scss';
 
 
-import MainPage from './pages/MainPage';
+import HomePage from './pages/HomePage';
 import LandingPage from './pages/LandingPage';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path="/main" component={MainPage} />
+        <Route path="/main" component={HomePage} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </Router>
