@@ -100,6 +100,17 @@ const api = {
         for (let [name, data] of Object.entries(result.val()))
             users.push(data);
         
+        // sort by statuses -> time
+        users.sort((a, b) => {
+            let status_a = parseInt(a.status);
+            let status_b = parseInt(b.status);
+
+            let date_a = new Date(a.startDate);
+            let date_b = new Date(b.startDate);
+
+            return (status_a - status_b) || (date_a - date_b);
+        });
+
         return api.createSuccess({ users });
     }
 };
