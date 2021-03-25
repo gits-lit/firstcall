@@ -28,6 +28,9 @@ module.exports = async (io, client) => {
 
     client.on('connected', data => {
         if (data.user_type === 'user') {
+            let result = await system.createUserEntry();
+            uid = result.uid; // assume it's a success ig LOL
+
             users[id] = {
                 uid,
                 client,
@@ -36,6 +39,7 @@ module.exports = async (io, client) => {
             };
 
             isResponder = false;
+            await system.updateUserEntry(uid, { startDate: users[id].start.toLocaleString('en-US') });
 
             // create stream to the google speech to text API
             recognizeStream = speechClient
