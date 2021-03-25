@@ -1,6 +1,10 @@
 body {
   color: #333333;
   font-family: Lexend, sans-serif;
+  height: 100vh;
+  margin: 0 !important;
+  overflow: hidden;
+  width: 100vw;
 }
 
 canvas {

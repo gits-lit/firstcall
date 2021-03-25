@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-import React from 'react';
-import LogPage from './LogPage';
-
-const HomePage = () => {
-  return (
-    <div>
-      Home Page
-      <LogPage />
-=======
 import React, {useState} from 'react';
-import SideBar from '../components/SideBar'
+
+import NavBar from '../components/NavBar';
+import ParentPage from '../components/ParentPage';
+import SideBar from '../components/SideBar';
+
+import LogPage from '../pages/LogPage';
 
 const HomePage = () => {
   const [click, setClick] = useState('log');
@@ -23,9 +18,10 @@ const HomePage = () => {
       />
       {
         click === 'log' ?
-          <div>
-            weee
-          </div> 
+          <ParentPage>
+            <NavBar />
+            <LogPage />
+          </ParentPage>
         : click === 'dial' ?
           <div>
             test dial
@@ -36,7 +32,6 @@ const HomePage = () => {
           </div> :
         <></>
       }
->>>>>>> 25cf3783e39fbdaddd7003c6faa867cedf9979e0
     </div>
   )
 }

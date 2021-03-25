@@ -1,17 +1,20 @@
 .nav-bar{
-  width:100vw;
-  height:8.5vh;
+  width: 100vw;
+  height: 8.5vh;
   position: fixed;
   background-color: #fff;
   display: flex;
   border-bottom: 1px solid #DFDFDF;
   flex-direction: row;
   align-items: center;
+  top: 0;
+  left: 0;
   justify-content: space-between;
   z-index: 2;
 
   .logo{
     box-sizing: border-box;
+    cursor: pointer;
     padding: 1vh 2vw;
     overflow: hidden;
     height:100%;
