@@ -1,4 +1,4 @@
-const system = require('./system');
+const system = require('../../util/system');
 require('dotenv').config(); // load env
 
 const speech = require('@google-cloud/speech');
