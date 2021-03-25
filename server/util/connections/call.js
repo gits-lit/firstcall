@@ -18,7 +18,7 @@ const request = {
 
 var responders = {};
 var users = {};
-module.exports = async (io, client) => {
+module.exports = (io, client) => {
     let id = client.id;
     let isResponder = undefined;
     let recognizeStream = undefined;
@@ -26,7 +26,7 @@ module.exports = async (io, client) => {
     // create an initial user entry in our database
     let uid = undefined;
 
-    client.on('connected', data => {
+    client.on('connected', async data => {
         if (data.user_type === 'user') {
             let result = await system.createUserEntry();
             uid = result.uid; // assume it's a success ig LOL
