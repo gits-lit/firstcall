@@ -28,7 +28,7 @@ const api = {
             return old;
         } else {
             await ref.set({
-                post_id: 1
+                user_id: 1
             });
 
             return 0;
