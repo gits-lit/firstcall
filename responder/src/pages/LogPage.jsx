@@ -1,9 +1,10 @@
 import React from 'react';
+import Map from '../components/Map';
 
 const LogPage = () => {
   return (
     <div>
-      Page 1
+      <Map />
     </div>
   )
 }

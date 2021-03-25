@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+.search-bar {
+  align-items: center;
+  border: 1px solid #DFDFDF;
+  border-radius: 5px;
+  display: flex;
+  height: 5.5vh;
+  justify-content: space-between;
+  width: 45vw;
+
+  .location {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1vh 1vw;
+  }
+
+  input {
+    background-color: transparent;
+    padding-left: 0;
+    border: hidden;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Lexend', sans-serif;
+    width: 80%;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  .search {
+    border-left: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1vh 1.25vw;
+  }
+}
