@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import CallCenter from '../components/CallCenter';
 import NavBar from '../components/NavBar';
 import ParentPage from '../components/ParentPage';
 import SideBar from '../components/SideBar';
@@ -13,7 +12,6 @@ import { loadLocation } from '../components/Map/utils.js';
 const HomePage = () => {
   const [click, setClick] = useState('log');
   const [markerVisibility, setMarkerVisibility] = useState(true);
-  const [mapHeight, setMapHeight] = useState('91.5vh');
 
   const setCall = (lng, lat) => {
     if (window.map) {
@@ -32,8 +30,6 @@ const HomePage = () => {
           setClick('dial');
         });
       });
-      // MOVE TO HAPPEN AFTER LOATION IS LOADED
-      setMapHeight('30vh');
     }
     setMarkerVisibility(false);
   }
@@ -53,7 +49,6 @@ const HomePage = () => {
               markerVisibility={markerVisibility}
               dial={click=='dial' ? true : false}
               setCall={setCall} />
-            <CallCenter />
           </ParentPage>
         : click === 'stats' ?
           <div>

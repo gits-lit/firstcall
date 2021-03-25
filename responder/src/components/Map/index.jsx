@@ -24,6 +24,7 @@ const MapComponent = (props) => {
   const bottomtwo = props.dial ? '-39.5vh' : '0vh';
   const radius = props.dial ? '5px' : '0';
   const right = props.dial ? '2vw' : '0';
+  const width = props.dial ? '58vw' : '60vw';
 
   const onMapLoad = (map) => {
     window.map = map;
@@ -44,7 +45,7 @@ const MapComponent = (props) => {
       height: height,
       transition: '1s',
       overflow: 'hidden',
-      width: '60vw',
+      width: width,
       bottom: bottom,
       borderRadius: radius
     }}>
@@ -60,7 +61,7 @@ const MapComponent = (props) => {
         transition: '1s',
         width: '60vw'
       }}
-      center={[-117.06651266267941, 32.76570649214452]}
+      center={[-117.2276424619609, 32.862009432372616]}
       flyToOptions={{
         speed: 0
       }}
@@ -71,20 +72,25 @@ const MapComponent = (props) => {
 
       zoom = {[13]}
     >
-      {props.markerVisibility &&
-      <Marker
-        coordinates={[-117.06651266267941, 32.76570649214452]}
-        anchor="bottom"
-        offset={[400, -window.innerHeight * .915]}
-        onClick={() => {
-          props.setCall(-117.06651266267941, 32.76570649214452);
-        }}
-      >
-        <CustomMarker
-          id="9231DS"
-          status="Completed"
-        />
-      </Marker>
+      {
+        props.data.map(user => {
+          return (
+            props.markerVisibility && 
+            <Marker
+            coordinates={[user.long, user.lat]}
+            anchor="bottom"
+            offset={[400, -window.innerHeight * .915]}
+            onClick={() => {
+              props.setCall(user.long, user.lat);
+            }}
+          >
+            <CustomMarker
+              id={user.caseId}
+              status={user.status}
+            />
+          </Marker>
+          )
+          })
       }
     </Map>
     </div>
