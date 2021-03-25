@@ -35,7 +35,7 @@ const api = {
         }
     },
     getUser: async (uid) => {
-        let ref = db.ref(`users/${uid}`);
+        let ref = db.ref(`users/user-${uid}`);
         let result = await ref.once('value');
 
         if (result.exists()) {
@@ -54,7 +54,7 @@ const api = {
             return api.createError(`User with id: ${uid} already exists somehow?`);
 
         try {
-            let ref = db.ref(`users/${uid}`);
+            let ref = db.ref(`users/user-${uid}`);
             await ref.set({
                 uid,
                 caseId: uuid(),
@@ -83,7 +83,7 @@ const api = {
             return api.createError(`User with id: ${uid} does not exist.`);
         
         try {
-            let ref = db.ref(`users/${uid}`);
+            let ref = db.ref(`users/user-${uid}`);
             await ref.update(newData);
 
             return api.createSuccess();
