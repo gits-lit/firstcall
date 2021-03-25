@@ -1,0 +1,27 @@
+.nav-bar{
+  width:100vw;
+  height:8.5vh;
+  position: fixed;
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1px solid #DFDFDF;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+
+  .logo{
+    box-sizing: border-box;
+    padding: 1vh 2vw;
+    overflow: hidden;
+    height:100%;
+    width:auto;
+  }
+
+  .gear{
+    box-sizing: border-box;
+    padding: 1.25vh 2vw;
+    height: 100%;
+    width: auto;
+  }
+}
