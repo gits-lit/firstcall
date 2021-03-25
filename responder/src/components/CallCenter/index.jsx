@@ -4,6 +4,7 @@ import { Switch } from 'antd';
 import './style.scss';
 
 import Log from '../Log';
+import SearchBar from '../SearchBar';
 
 const NavBar = () => {
 
@@ -23,6 +24,7 @@ const NavBar = () => {
           <h2>Auto-Accept cases</h2>
         </div>
       </div>
+      <SearchBar />
       <Log status={callStatus.status} caseId={callStatus.caseId}
       time={callStatus.time} location={callStatus.location}/>
     </div>
