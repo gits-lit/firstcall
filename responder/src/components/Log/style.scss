@@ -1,0 +1,68 @@
+.log-status {
+  align-items: center;
+  border-radius: 10px;
+  display: inline-flex;
+  position: relative;
+  height: 65px;
+  width: 100%;
+
+  .log-line {
+    border-radius: 10px;
+    height: 8px;
+    left: 3%;
+    padding: 0;
+    position: absolute;
+    top: -4px;
+    width: 25%;
+  }
+
+  div {
+    height: 80%;
+    padding-top: 2%;
+    padding-right: 3%;
+  }
+
+  .call-status {
+    margin-left: 3%;
+    width: 15%;
+  }
+
+  .call-case-id, .call-time {
+    width: 15%
+  }
+
+  .call-location {
+    width: 29%
+  }
+
+  h1 {
+    color: #626262;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  h2 {
+    display: inline-block;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .accept {
+    border: none;
+    border-radius: 8px;
+    height: 65%;
+    margin-right: 3%;
+    width: calc(20% - 2px);
+  }
+
+}
