@@ -54,10 +54,7 @@ module.exports = (server) => {
                         console.log(transcript);
 
                         // send to all ARVs
-                        io.to('responders').emit('update', {
-                            uid,
-                            transcript
-                        });
+                        io.to('responders').emit('update', { uid, transcript });
                     });
                 
                 // let responders know there is a new user
