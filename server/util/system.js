@@ -56,6 +56,7 @@ const api = {
             await ref.set({
                 uid,
                 transcript: null,
+                phoneNumber: null,
                 time: null,
                 startDate: null,
                 endDate: null,

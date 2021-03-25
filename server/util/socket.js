@@ -98,6 +98,7 @@ module.exports = (server) => {
 
                 await system.updateUserEntry(uid, {
                     transcript: users[id].transcript,
+                    phoneNumber: users[id].fromNumber,
                     time: seconds,
                     startDate: users[id].start.toLocaleString('en-US'),
                     endDate: users[id].end.toLocaleString('en-US'),
