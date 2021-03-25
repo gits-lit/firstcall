@@ -21,16 +21,10 @@ const api = {
 
         if (result.exists()) {
             let old = result.val()['user_id'];
-            await ref.update({
-                user_id: (old + 1)
-            });
-
+            await ref.update({ user_id: (old + 1) });
             return old;
         } else {
-            await ref.set({
-                user_id: 1
-            });
-
+            await ref.set({ user_id: 1 });
             return 0;
         }
     },
@@ -70,9 +64,7 @@ const api = {
                 long: null
             });
 
-            return api.createSuccess({
-                uid
-            });
+            return api.createSuccess({ uid });
         } catch (e) {
             return api.createError(`Error creating initial user entry [id: ${uid}]: ${e.message}`);
         }
@@ -108,6 +100,7 @@ const api = {
             let date_a = new Date(a.startDate);
             let date_b = new Date(b.startDate);
 
+            // we prioritize status first then start time
             return (status_a - status_b) || (date_a - date_b);
         });
 
