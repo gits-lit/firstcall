@@ -1,11 +1,13 @@
 import React from 'react';
+import LogPage from './LogPage';
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <div>
-      Main Page
+      Home Page
+      <LogPage />
     </div>
   )
 }
 
-export default MainPage;
+export default HomePage;
