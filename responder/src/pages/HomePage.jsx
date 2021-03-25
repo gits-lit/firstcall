@@ -7,8 +7,23 @@ import SideBar from '../components/SideBar';
 
 import LogPage from '../pages/LogPage';
 
+import { clearMarkers } from '../components/Map';
+
 const HomePage = () => {
   const [click, setClick] = useState('log');
+  const [markerVisibility, setMarkerVisibility] = useState(true);
+
+  const setCall = (lng, lat) => {
+    setClick('dial');
+    if (window.map) {
+      console.log('moving map');
+      window.map.easeTo({
+        pitch: 60,
+        center: [lng, lat]
+      })
+    }
+    setMarkerVisibility(false);
+  }
 
   return (
     <div>
@@ -18,16 +33,12 @@ const HomePage = () => {
         }}
       />
       {
-        click === 'log' ?
+        click === 'log' || click === 'dial' ?
           <ParentPage>
             <NavBar />
+            <LogPage markerVisibility={markerVisibility} setCall={setCall} />
             <CallCenter />
-            <LogPage />
           </ParentPage>
-        : click === 'dial' ?
-          <div>
-            test dial
-          </div> 
         : click === 'stats' ?
           <div>
             test stats
