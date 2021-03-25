@@ -18,7 +18,12 @@ const Map = ReactMapboxGl({
 });
 
 const MapComponent = (props) => {
-  const leftMargin = props.sideBarVis ? '15vw' : '0';
+  const height = props.dial ? '30vh' : '91.5vh';
+  const bottom = props.dial ? '53vh' : '0vh';
+  // 45.75 - (8.5 / 2)
+  const bottomtwo = props.dial ? '-39.5vh' : '0vh';
+  const radius = props.dial ? '5px' : '0';
+  const right = props.dial ? '2vw' : '0';
 
   const onMapLoad = (map) => {
     window.map = map;
@@ -33,15 +38,26 @@ const MapComponent = (props) => {
   }
 
   return (
+    <div style={{
+      position: 'absolute',
+      right: right,
+      height: height,
+      transition: '1s',
+      overflow: 'hidden',
+      width: '60vw',
+      bottom: bottom,
+      borderRadius: radius
+    }}>
     <Map
       antialias={false}
       containerStyle={{
-        bottom: '0',
+        borderRadius: radius,
+        bottom: bottomtwo,
         height: '91.5vh',
-        marginLeft: '35vw',
+        right: '0',
         overflow: 'hidden',
         position: 'absolute',
-        transition: '.5s',
+        transition: '1s',
         width: '60vw'
       }}
       center={[-117.06651266267941, 32.76570649214452]}
@@ -50,7 +66,7 @@ const MapComponent = (props) => {
       }}
       onClick={onMapClick}
       onStyleLoad={onMapLoad}
-      pitch = {props.pitch}
+      pitch = {[0]}
       style="mapbox://styles/mapbox/light-v10"
 
       zoom = {[13]}
@@ -71,6 +87,7 @@ const MapComponent = (props) => {
       </Marker>
       }
     </Map>
+    </div>
   );
 }
 

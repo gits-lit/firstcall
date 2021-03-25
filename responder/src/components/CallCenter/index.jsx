@@ -1,11 +1,16 @@
-import React from 'react';
-import { Switch } from 'antd';
+import React, { useState } from 'react';
+import { Dropdown, Menu, Switch } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 import './style.scss';
 
+import CaseFilter from '../CaseFilter';
 import Log from '../Log';
+import SearchBar from '../SearchBar';
 
 const NavBar = () => {
+
+  const [option, setOptions] = useState('');
 
   const callStatus = {
     'status':'Ongoing',
@@ -22,6 +27,13 @@ const NavBar = () => {
           <Switch defaultChecked />
           <h2>Auto-Accept cases</h2>
         </div>
+      </div>
+      <SearchBar />
+      <div className="status-options">
+        <div>
+          
+        </div>
+        <CaseFilter />
       </div>
       <Log status={callStatus.status} caseId={callStatus.caseId}
       time={callStatus.time} location={callStatus.location}/>

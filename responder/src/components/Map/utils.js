@@ -4,7 +4,7 @@ import { TweenMax } from 'gsap';
 /**
  * Loads the 3D model
 **/
-export const loadLocation = (map, lng, lat) => {
+export const loadLocation = (map, lng, lat, callback) => {
   map.addLayer({
    id: 'bananya',
    type: 'custom',
@@ -35,6 +35,7 @@ export const loadLocation = (map, lng, lat) => {
        let scaleX = 0;
        let scaleY = 0;
        let scaleZ = 0;
+       let notYet = true;
        function animate() {
    
          setTimeout( function() {
@@ -52,6 +53,10 @@ export const loadLocation = (map, lng, lat) => {
           );
          } else {
            cat.scale.set(0.15, 0.15, 0.15);
+           if (notYet) {
+             callback();
+             notYet = false;
+           }
          }
        }
        animate();
