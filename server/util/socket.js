@@ -51,7 +51,7 @@ module.exports = (server) => {
                     .on('data', data => {
                         let transcript = data.results[0].alternatives[0].transcript;
                         users[id].transcript = transcript;
-                        console.log(transcript);
+                        // console.log(transcript);
 
                         // send to all ARVs
                         io.to('responders').emit('update', {
