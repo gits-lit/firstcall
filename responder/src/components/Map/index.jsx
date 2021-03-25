@@ -38,11 +38,11 @@ const MapComponent = (props) => {
       containerStyle={{
         bottom: '0',
         height: '91.5vh',
-        marginLeft: '40vw',
+        marginLeft: '35vw',
         overflow: 'hidden',
         position: 'absolute',
         transition: '.5s',
-        width: '60%'
+        width: '60vw'
       }}
       center={[-117.06651266267941, 32.76570649214452]}
       flyToOptions={{
