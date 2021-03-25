@@ -43,21 +43,29 @@ const Log = (props) => {
           backgroundColor: `${borderColor}`
         }}>
       </div>
-      <div className="call-status">
-        <h1>Status</h1>
-        <h2>{status}</h2>
+      <div className="entry call-status">
+        <div>
+          <h1>Status</h1>
+          <h2>{status}</h2>
+        </div>
       </div>
-      <div className="call-case-id">
-        <h1>Case Id</h1>
-        <h2>#{props.caseId}</h2>
+      <div className="entry call-case-id">
+        <div>
+          <h1>Case Id</h1>
+          <h2>#{props.caseId}</h2>
+        </div>
       </div>
-      <div className="call-time">
-        <h1>Time</h1>
-        <h2>{props.time}</h2>
+      <div className="entry call-time">
+        <div>
+          <h1>Time</h1>
+          <h2>{props.time}</h2>
+        </div>
       </div>
-      <div className="call-location">
-        <h1>Location</h1>
-        <h2>{props.location}</h2>
+      <div className="entry call-location">
+        <div>
+          <h1>Location</h1>
+          <h2>{props.location}</h2>
+        </div>
       </div>
       {
         condition === 'Accept' ? 

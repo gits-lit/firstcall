@@ -1,5 +1,6 @@
 .log-status {
   align-items: center;
+  justify-content: center;
   border-radius: 10px;
   display: inline-flex;
   position: relative;
@@ -16,10 +17,15 @@
     width: 25%;
   }
 
-  div {
+  .entry {
     height: 80%;
-    padding-top: 2%;
     padding-right: 3%;
+    display: flex;
+    align-items: center;
+
+    div {
+      max-width: 100%;
+    }
   }
 
   .call-status {
@@ -40,6 +46,7 @@
     display: inline-block;
     font-size: 14px;
     font-weight: 300;
+    line-height: 100%;
     margin: 0;
     overflow: hidden;
     white-space: nowrap;
@@ -51,6 +58,7 @@
     color: #333333;
     font-size: 14px;
     font-weight: 600;
+    line-height: 100%;
     margin: 0;
     overflow: hidden;
     white-space: nowrap;
