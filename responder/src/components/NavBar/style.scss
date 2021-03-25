@@ -1,4 +1,4 @@
-.nav-bar{
+.nav-bar {
   width: 100vw;
   height: 8.5vh;
   position: fixed;
@@ -12,7 +12,7 @@
   justify-content: space-between;
   z-index: 2;
 
-  .logo{
+  .logo {
     box-sizing: border-box;
     cursor: pointer;
     padding: 1vh 2vw;
@@ -21,10 +21,10 @@
     width:auto;
   }
 
-  .gear{
+  .gear {
     box-sizing: border-box;
     padding: 1.25vh 2vw;
-    height: 100%;
+    height: 90%;
     width: auto;
   }
 }
