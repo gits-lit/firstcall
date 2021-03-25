@@ -4,7 +4,7 @@ import Map from '../components/Map';
 const LogPage = (props) => {
   return (
     <div>
-      <Map markerVisibility={props.markerVisibility} setCall={props.setCall}/>
+      <Map pitch={props.pitch} markerVisibility={props.markerVisibility} setCall={props.setCall}/>
     </div>
   )
 }

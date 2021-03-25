@@ -2,12 +2,19 @@ import { useState } from 'react';
 import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 
 import CustomMarker from './CustomMarker';
-import { loadLocations } from './utils.js';
 import './style.scss';
 
 const Map = ReactMapboxGl({
   accessToken:
-    'pk.eyJ1IjoiZW1pbmd1eWVuIiwiYSI6ImNrOGI2ZjRyODA1aHEzZG93cmFxaHR5d2IifQ.x8v_uFbdBanYgRtoKCGIOw'
+    'pk.eyJ1IjoiZW1pbmd1eWVuIiwiYSI6ImNrOGI2ZjRyODA1aHEzZG93cmFxaHR5d2IifQ.x8v_uFbdBanYgRtoKCGIOw',
+    animationOptions: {
+      essential: true
+    },
+    dragRotate: false,
+    attributionControl: false,
+    //touchZoomRotate={false},
+    //dragPan: false,
+    interactive: false,
 });
 
 const MapComponent = (props) => {
@@ -16,18 +23,18 @@ const MapComponent = (props) => {
   const onMapLoad = (map) => {
     window.map = map;
     map.scrollZoom.disable();
-    loadLocations(map);
+    //loadLocations(map);
     //loadMarkers(map);
     console.log(window.innerWidth * 0.6);
   };
 
   const onMapClick = (map) => {
-    
+    window.map = map;
   }
 
   return (
     <Map
-      antialias={true}
+      antialias={false}
       containerStyle={{
         bottom: '0',
         height: '91.5vh',
@@ -43,9 +50,10 @@ const MapComponent = (props) => {
       }}
       onClick={onMapClick}
       onStyleLoad={onMapLoad}
-      pitch = {[0]}
+      pitch = {props.pitch}
       style="mapbox://styles/mapbox/light-v10"
-      zoom = {[16]}
+
+      zoom = {[13]}
     >
       {props.markerVisibility &&
       <Marker
