@@ -19,5 +19,5 @@ app.use('/api/users', require('./routes/users')); // api
 const SERVER_PORT = (process.env.PORT || 3000);
 const server = app.listen(SERVER_PORT, () => console.log(`Server started on port ${SERVER_PORT}.`));
 
-// set up our socket server
+// set up our socket server connection
 require('./util/socket')(server);

@@ -54,7 +54,17 @@ const api = {
         try {
             let ref = db.ref(`users/${uid}`);
             await ref.set({
-                uid
+                uid,
+                transcript: null,
+                phoneNumber: null,
+                time: null,
+                startDate: null,
+                endDate: null,
+                status: '0',
+                name: null,
+                address: null,
+                lat: null,
+                long: null
             });
 
             return api.createSuccess({

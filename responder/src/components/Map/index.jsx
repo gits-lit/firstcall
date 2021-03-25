@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 
 import CustomMarker from './CustomMarker';
@@ -46,6 +47,7 @@ const MapComponent = (props) => {
       style="mapbox://styles/mapbox/light-v10"
       zoom = {[16]}
     >
+      {props.markerVisibility &&
       <Marker
         coordinates={[-117.06651266267941, 32.76570649214452]}
         anchor="bottom"
@@ -59,6 +61,7 @@ const MapComponent = (props) => {
           status="Completed"
         />
       </Marker>
+      }
     </Map>
   );
 }
