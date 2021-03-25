@@ -47,15 +47,16 @@ module.exports = async (io, client) => {
                     // console.log(transcript);
 
                     // send to all ARVs
-                    io.to('responders').emit('update', {
-                        uid,
-                        transcript
-                    });
+                    io.to('responders').emit('update', { uid, transcript });
                 });
 
             // let responders know there is a new user
             client.joinedChat = false;
-            io.to('responders').emit('new', { uid });
+            io.to('responders').emit('new', uid);
+
+            // since this is a new user, we'll have all responders connect to this new user as well.
+            for (let [id, socket] of Object.entries(responders))
+                socket.join(uid);
         } else if (data.user_type === 'responder') {
             responders[id] = client;
             isResponder = true;
@@ -129,7 +130,7 @@ module.exports = async (io, client) => {
             delete users[id];
 
             // let responders know this user is gone :(
-            io.to('responders').emit('left', { uid });
+            io.to('responders').emit('left', uid);
         }
     });
 
