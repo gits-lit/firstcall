@@ -1,4 +1,6 @@
 const db = require('./firebase');
+const uuid = require('uuid-random');
+
 const api = {
     createError: (message, data) => {
         return {
@@ -55,6 +57,7 @@ const api = {
             let ref = db.ref(`users/${uid}`);
             await ref.set({
                 uid,
+                caseId: uuid(),
                 transcript: null,
                 phoneNumber: null,
                 time: null,
