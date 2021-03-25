@@ -1,9 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import SideBar from '../components/SideBar'
 
 const HomePage = () => {
+  const [click, setClick] = useState('log');
+
   return (
     <div>
-      Home Page
+      <SideBar click={click}
+        setClick={(clickInput) => {
+          setClick(clickInput);
+        }}
+      />
+      {
+        click === 'log' ?
+          <div>
+            weee
+          </div> 
+        : click === 'dial' ?
+          <div>
+            test dial
+          </div> 
+        : click === 'stats' ?
+          <div>
+            test stats
+          </div> :
+        <></>
+      }
     </div>
   )
 }
