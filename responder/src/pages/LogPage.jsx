@@ -1,10 +1,10 @@
 import React from 'react';
 import Map from '../components/Map';
 
-const LogPage = () => {
+const LogPage = (props) => {
   return (
     <div>
-      <Map />
+      <Map setCall={props.setCall}/>
     </div>
   )
 }

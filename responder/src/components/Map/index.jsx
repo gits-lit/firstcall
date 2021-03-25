@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
 import ReactMapboxGl, { Marker } from 'react-mapbox-gl';
 
 import CustomMarker from './CustomMarker';
-import { loadMarkers } from './utils.js';
+import { loadLocations } from './utils.js';
 import './style.scss';
 
 const Map = ReactMapboxGl({
@@ -16,13 +15,9 @@ const MapComponent = (props) => {
   const onMapLoad = (map) => {
     window.map = map;
     map.scrollZoom.disable();
-    loadMarkers(map);
-
-    ///setTimeout(() => {
-    //  map.easeTo({
-    //    pitch: 60
-    //  })
-    //}, 2000);
+    loadLocations(map);
+    //loadMarkers(map);
+    console.log(window.innerWidth * 0.6);
   };
 
   const onMapClick = (map) => {
@@ -53,7 +48,12 @@ const MapComponent = (props) => {
     >
       <Marker
         coordinates={[-117.06651266267941, 32.76570649214452]}
-        anchor="bottom">
+        anchor="bottom"
+        offset={[400, -window.innerHeight * .915]}
+        onClick={() => {
+          props.setCall(-117.06651266267941, 32.76570649214452);
+        }}
+      >
         <CustomMarker
           id="9231DS"
           status="Completed"

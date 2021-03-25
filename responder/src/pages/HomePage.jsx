@@ -9,6 +9,15 @@ import LogPage from '../pages/LogPage';
 const HomePage = () => {
   const [click, setClick] = useState('log');
 
+  const setCall = (lng, lat) => {
+    if (window.map) {
+      window.map.easeTo({
+        pitch: 60,
+        center: [lng, lat]
+      })
+    }
+  }
+
   return (
     <div>
       <SideBar click={click}
@@ -20,7 +29,7 @@ const HomePage = () => {
         click === 'log' ?
           <ParentPage>
             <NavBar />
-            <LogPage />
+            <LogPage setCall={setCall} />
           </ParentPage>
         : click === 'dial' ?
           <div>
