@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+import CallCenter from '../components/CallCenter';
 import NavBar from '../components/NavBar';
 import ParentPage from '../components/ParentPage';
 import SideBar from '../components/SideBar';
@@ -30,6 +31,7 @@ const HomePage = () => {
           <ParentPage>
             <NavBar />
             <LogPage setCall={setCall} />
+            <CallCenter />
           </ParentPage>
         : click === 'dial' ?
           <div>
