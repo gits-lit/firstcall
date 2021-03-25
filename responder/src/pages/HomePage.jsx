@@ -13,10 +13,9 @@ import { loadLocation } from '../components/Map/utils.js';
 const HomePage = () => {
   const [click, setClick] = useState('log');
   const [markerVisibility, setMarkerVisibility] = useState(true);
-  const [pitch, setPitch] = useState(0);
+  const [mapHeight, setMapHeight] = useState('91.5vh');
 
   const setCall = (lng, lat) => {
-    setClick('dial');
     if (window.map) {
 ;     // console.log('moving map');
       window.map.easeTo({
@@ -29,8 +28,12 @@ const HomePage = () => {
         animate: true
       });
       window.map.on('moveend', () => {
-        loadLocation(window.map, lng, lat);
+        loadLocation(window.map, lng, lat, () => {
+          setClick('dial');
+        });
       });
+      // MOVE TO HAPPEN AFTER LOATION IS LOADED
+      setMapHeight('30vh');
     }
     setMarkerVisibility(false);
   }
@@ -46,7 +49,10 @@ const HomePage = () => {
         click === 'log' || click === 'dial' ?
           <ParentPage>
             <NavBar />
-            <LogPage pitch={pitch} markerVisibility={markerVisibility} setCall={setCall} />
+            <LogPage
+              markerVisibility={markerVisibility}
+              dial={click=='dial' ? true : false}
+              setCall={setCall} />
             <CallCenter />
           </ParentPage>
         : click === 'stats' ?
