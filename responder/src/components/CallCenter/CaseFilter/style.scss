@@ -1,5 +1,27 @@
-.case-filter {
-  border: 1px solid #DFDFDF;
-  color: black;
-  padding: 5px 10px;
+@import 'antd/dist/antd.css';
+
+.case-dropdown {
+  position: relative;
+
+  .arrow {
+    left: calc(120px - 25px);
+    position: absolute;
+    top: 12px;
+  }
+
+  .case-filter {
+    display: block;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    height: 35px;
+    overflow: hidden;
+    padding: 5px 10px;
+    width: 120px !important;
+  
+    .anticon  {
+      display: none !important;
+    }
+  }
 }
