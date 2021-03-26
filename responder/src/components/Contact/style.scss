@@ -1,0 +1,49 @@
+.contact-box {
+  background-color: white;
+  border: 1px solid #DFDFDF;
+  border-radius: 6px;
+  bottom: calc(20px - 1000px);
+  display: none;
+  height: calc(81.5vh - 20px);
+  margin: 0 1.5vw 0 2vw;
+  overflow: scroll;
+  position: absolute;
+  width: 26vw;
+
+  .contact-header {
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5%;
+    margin-top: 20px;
+    position: relative;
+
+    h1 {
+      color: #DFDFDF;
+      font-size: 24px;
+      line-height: 100%;
+    }
+
+    &.active {
+      h1 {
+        color: #333333;
+      }
+
+      &:after {
+        width: 100%;
+        right: 0;
+      }
+    }
+
+    &:after {
+      content: '';
+      background-color: #333333;
+      border-radius: 10px;
+      bottom: 0;
+      height: 5px;
+      position: absolute;
+      width: 0;
+      transition: 0.2s;
+      right: 50%;
+    }
+  }
+}

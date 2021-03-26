@@ -1,0 +1,21 @@
+.deploy-help {
+  background-color: white;
+  border: 1px solid #DFDFDF;
+  border-radius: 6px;
+  bottom: 20px;
+  bottom: calc(20px - 1000px);
+  display: none;
+  height: calc(51.5vh - 40px);
+  overflow: scroll;
+  position: absolute;
+  width: 35vw;
+  right: 2vw;
+  z-index: 1000;
+
+  h1 {
+    font-size: 24px;
+    line-height: 100%;
+    margin-left: 5%;
+    margin-top: 20px;
+  }
+}

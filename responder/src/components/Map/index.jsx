@@ -19,12 +19,12 @@ const Map = ReactMapboxGl({
 
 const MapComponent = (props) => {
   const height = props.dial ? '30vh' : '91.5vh';
-  const bottom = props.dial ? '53vh' : '0vh';
+  const bottom = props.dial ? '51.5vh' : '0vh';
   // 45.75 - (8.5 / 2)
   const bottomtwo = props.dial ? '-39.5vh' : '0vh';
   const radius = props.dial ? '5px' : '0';
   const right = props.dial ? '2vw' : '0';
-  const width = props.dial ? '58vw' : '60vw';
+  const width = props.dial ? '63vw' : '60vw';
 
   const onMapLoad = (map) => {
     window.map = map;
@@ -59,7 +59,7 @@ const MapComponent = (props) => {
         overflow: 'hidden',
         position: 'absolute',
         transition: '1s',
-        width: '60vw'
+        width: '63vw'
       }}
       center={[-117.2276424619609, 32.862009432372616]}
       flyToOptions={{
@@ -81,6 +81,7 @@ const MapComponent = (props) => {
             anchor="bottom"
             offset={[400, -window.innerHeight * .915]}
             onClick={() => {
+              console.log('CALLING')
               props.setCall(user.long, user.lat);
             }}
           >

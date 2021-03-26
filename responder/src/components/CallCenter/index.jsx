@@ -105,7 +105,9 @@ const CallCenter = (props) => {
           }}
         />
       </div>
-      <div className="logs">
+      <div
+        className="logs"
+        ref={animationRef}>
         {props.data.map(user => {
             const date = new Date(user.startDate)
             const minutes = date.getMinutes();
