@@ -78,7 +78,7 @@ const CallCenter = (props) => {
           <h2>Auto-Accept cases</h2>
         </div>
       </div>
-      <SearchBar 
+      <SearchBar name="by Case ID"
         setSearchId={(searchIdInput) => {
           setSearchId(searchIdInput);
         }}

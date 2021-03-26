@@ -9,7 +9,7 @@ const SearchBar = (props) => {
   return (
     <div className="search-option">
       <div className="searchbar">
-        <div className="search-header">Search by Case ID</div>
+        <div className="search-header">Search {props.name}</div>
         <input
           onChange={e => { 
             setCaseId(e.target.value);
