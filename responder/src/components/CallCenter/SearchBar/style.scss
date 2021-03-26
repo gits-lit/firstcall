@@ -1,6 +1,7 @@
 .search-option {
   padding-top: calc(3vh - 22.5px);
   height: 6%;
+
   .searchbar {
     align-items: center;
     border: 1px solid #DFDFDF;
@@ -36,6 +37,7 @@
     .search {
       border-left: 1px solid #DFDFDF;
       box-sizing: border-box;
+      cursor: pointer;
       height: 100%;
       padding: 1vh 1.25vw;
     }

@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { Dropdown, Menu, message } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 import arrow from '../../../assets/arrow.svg'
 import './style.scss';
 
-const Icon = () => {
-  return (
-    <div></div>
-  )
-}
-
 const CaseFilter = (props) => {
   const onClick = ({ key }) => {
     setCurrentSelected(key);
+    props.setFilter(key);
   };
 
-  const [currentSelected, setCurrentSelected] = useState('All Cases')
+  const [currentSelected, setCurrentSelected] = useState(props.filter);
 
   return (
     <div className="case-dropdown">

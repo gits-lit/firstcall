@@ -11,7 +11,10 @@ const SearchBar = (props) => {
       <div className="searchbar">
         <div className="search-header">Search by Case ID</div>
         <input
-          onChange={e => setCaseId(e.target.value)}
+          onChange={e => { 
+            setCaseId(e.target.value);
+            props.setSearchId(e.target.value);
+          }}
           type="text"
           value={caseId}
         />
