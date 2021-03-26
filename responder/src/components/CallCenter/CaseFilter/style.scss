@@ -4,7 +4,7 @@
   position: relative;
 
   .arrow {
-    left: calc(25% - 25px);
+    left: calc(120px - 25px);
     position: absolute;
     top: 12px;
   }
@@ -18,7 +18,7 @@
     height: 35px;
     overflow: hidden;
     padding: 5px 10px;
-    width: 25% !important;
+    width: 120px !important;
   
     .anticon  {
       display: none !important;

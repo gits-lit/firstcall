@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Dropdown, Menu, Switch } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import React, { useEffect, useState, useRef } from 'react';
+import { Switch } from 'antd';
 import anime from 'animejs';
 
 import './style.scss';
@@ -36,8 +35,19 @@ const animationRef = React.useRef(null);
       </div>
       <SearchBar />
       <div className="status-options">
-        <div>
-          
+        <div className="option-num">
+          <div className="option">
+            <div className="new-circle"></div>
+            <div className="option-description"><span>3</span> New </div>
+          </div>
+          <div className="option">
+            <div className="ongoing-circle"></div>
+            <div className="option-description"><span>3</span> Ongoing </div>
+          </div>
+          <div className="option">
+            <div className="completed-circle"></div>
+            <div className="option-description"><span>87</span> Completed </div>
+          </div>
         </div>
         <CaseFilter />
       </div>
