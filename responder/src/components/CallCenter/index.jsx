@@ -10,7 +10,7 @@ import Log from './Log';
 import SearchBar from './SearchBar';
 
 const CallCenter = (props) => {
-const animationRef = React.useRef(null);
+  const animationRef = useRef(null);
   useEffect(() => {
     animationRef.current = anime({
       targets: '.log-status',
@@ -41,7 +41,9 @@ const animationRef = React.useRef(null);
         </div>
         <CaseFilter />
       </div>
-      <div className="logs">
+      <div
+        className="logs"
+        ref={animationRef}>
         {props.data.map(user => {
             console.log(user);
             const date = new Date(user.startDate)

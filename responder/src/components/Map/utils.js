@@ -27,9 +27,8 @@ export const loadLocation = (map, lng, lat, callback) => {
      }
 
      window.tb.loadObj(options, function (model) {
-       const cat = model.setCoords([lng, lat]);
-       console.log("Nya~ nya~ nya~ pls end me");
-       window.tb.add(cat);
+       const location = model.setCoords([lng, lat]);
+       window.tb.add(location);
 
        let rotation = 0;
        let scaleX = 0;
@@ -43,16 +42,16 @@ export const loadLocation = (map, lng, lat, callback) => {
            requestAnimationFrame( animate );
    
          }, 1000 / 20 );
-         cat.setRotation({x:0, y:0, z: rotation += 10});
+         location.setRotation({x:0, y:0, z: rotation += 10});
 
          if (scaleX < 0.15 && scaleY < 0.15 && scaleZ < 0.15) {
-          cat.scale.set(
+          location.scale.set(
             scaleX += 0.006,
             scaleY += 0.006,
             scaleZ += 0.006
           );
          } else {
-           cat.scale.set(0.15, 0.15, 0.15);
+           location.scale.set(0.15, 0.15, 0.15);
            if (notYet) {
              callback();
              notYet = false;
@@ -66,4 +65,12 @@ export const loadLocation = (map, lng, lat, callback) => {
      window.tb.update();
    }
  });
+}
+
+export const removeLocation = (map, callback) => {
+  //map.removeLayer('bananya');
+  //map.removeSource('bananya');
+  setTimeout(() => {
+    callback();
+  }, 500);
 }

@@ -1,0 +1,21 @@
+.dial-header {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  height: 8vh;
+  width: 95vw;
+  z-index: 100000000;
+  padding: 1vh 2vw 0;
+  display: none;
+  left: 3000px;
+
+  h1 {
+    font-size: 33px;
+    font-weight: 300;
+
+    .status-heading {
+      display: inline-block;
+      font-weight: 500;
+    }
+  }
+}
