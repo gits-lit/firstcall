@@ -8,29 +8,6 @@ import './style.scss';
 
 const DeployHelp = (props) => {
   const [searchUnit, setSearchUnit] = useState('');
-  const [requestedCount, setRequestedCount] = useState(0);
-  const [enrouteCount, setEnrouteCount] = useState(0);
-  const [onsightCount, setOnsightCount] = useState(0);
-
-  useEffect(() => {
-    let requestedStatus = 0;
-    let enrouteStatus = 0;
-    let onsightStatus = 0;
-
-    // for (let i = 0; i < props.data.length; i++) {
-    //   if (props.data[i].status === 'Requested') {
-    //     requestedStatus += 1;
-    //   } else if (props.data[i].status === 'Enroute') {
-    //     enrouteStatus += 1;
-    //   } else {
-    //     onsightStatus += 1;
-    //   }
-    // }
-
-    setRequestedCount(requestedStatus);
-    setEnrouteCount(enrouteStatus);
-    setOnsightCount(onsightStatus);
-  }, [props.responderData]);
 
   //temp route log
   const tempRequested = [{
