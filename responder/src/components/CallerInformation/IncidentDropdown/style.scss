@@ -1,0 +1,42 @@
+@import 'antd/dist/antd.css';
+
+.incident-dropdown {
+  margin: 30px 1.5vw;
+  position: relative;
+  width: calc(100% - 3vw);
+  z-index: 1;
+  
+  .incident-header {
+    background-color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    margin: 0;
+    padding: 0 8px;
+    position: absolute;
+    left: 15px;
+    top: -10px;
+  }
+
+  .arrow-down {
+    right: 10px;
+    position: absolute;
+    top: 12px;
+  }
+
+  .incident-filter {
+    display: block;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    color: black;
+    font-weight: #333333;
+    height: 35px;
+    overflow: hidden;
+    padding: 5px 22px;
+    width: 100% !important;
+  
+    .anticon {
+      display: none !important;
+    }
+  }
+}
