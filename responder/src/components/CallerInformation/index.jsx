@@ -36,21 +36,21 @@ const CallerInformation = () => {
           <div className="background"></div>
         </div>
         <div
-          className={ selected === 'Images' ? 'select-tab active' : 'select-tab'}
-          onClick={() => {
-            setSelected('Images');
-          }}
-        >
-          <div className="text">Images</div>
-          <div className="background"></div>
-        </div>
-        <div
           className={ selected === 'Vitals' ? 'select-tab active' : 'select-tab'}
           onClick={() => {
             setSelected('Vitals');
           }}
         >
           <div className="text">Vitals</div>
+          <div className="background"></div>
+        </div>
+        <div
+          className={ selected === 'Images' ? 'select-tab active' : 'select-tab'}
+          onClick={() => {
+            setSelected('Images');
+          }}
+        >
+          <div className="text">Images</div>
           <div className="background"></div>
         </div>
       </div>
