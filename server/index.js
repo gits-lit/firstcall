@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 // just some default page
 app.get('/', (req, res) => res.send(`ya yeet, firstcall's backend server!`));
 app.use('/', require('./routes/call')); // set up twilio's call stuff
+app.use('/api', require('./routes/general')); // api
 app.use('/api/users', require('./routes/users')); // api
 
 const SERVER_PORT = (process.env.PORT || 3000);
