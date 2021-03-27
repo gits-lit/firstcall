@@ -1,9 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import VitalsTab from './VitalsTab';
 
 import './style.scss';
 
 const CallerInformation = () => {
   const [selected, setSelected] = useState('Info');
+  const [emotions, setEmotions] = useState([]);
+
+  useEffect(() => {
+    setEmotions([{
+      feeling: 'Happy',
+      certainty: '97%'
+    }, {
+      feeling: 'Sad',
+      certainty: '95%'
+    }, {
+      feeling: 'Okay',
+      certainty: '50%'
+    }])
+  }, [])
 
   return (
     <div className="caller-information">
@@ -37,6 +53,9 @@ const CallerInformation = () => {
           <div className="background"></div>
         </div>
       </div>
+      {
+        selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : null
+      }
     </div>
   )
 }
