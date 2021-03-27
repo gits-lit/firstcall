@@ -138,7 +138,6 @@ module.exports = (io, client) => {
 
     client.on('webrtc', data => {
         if (isResponder) {
-            io.to('responders').emit('webrtc', { clientId: id, ...data })
             let destinationId = data.sendTo;
             data.sendTo = null;
 
