@@ -1,11 +1,10 @@
 const router = require('express')();
 const system = require('../util/system');
 
-const responders = require('../assets/responders.json');
 const translate = require('@vitalets/google-translate-api');
 const { isSupported } = require('@vitalets/google-translate-api/languages');
 
-router.get('/responders', (req, res) => res.json(responders));
+router.get('/responders', async (req, res) => res.json(await system.getResponders()));
 router.get('/translate', async (req, res) => {
     let toLang = req.query.to;
     let fromLang = req.query.from;
@@ -23,7 +22,7 @@ router.get('/translate', async (req, res) => {
                         return;
                     }
                 }
-                 
+                
                 let result = await translate(text, config);
                 res.json(system.createSuccess({ text: result.text }));
             } catch (e) {
