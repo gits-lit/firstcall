@@ -1,34 +1,138 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState} from 'react';
 
-import CallCenter from '../components/CallCenter';
 import NavBar from '../components/NavBar';
 import ParentPage from '../components/ParentPage';
 import SideBar from '../components/SideBar';
+import Contact from '../components/Contact';
+import DialHeader from '../components/DialHeader';
+import DeployHelp from '../components/DeployHelp';
+import CallerInformation from '../components/CallerInformation';
 
 import LogPage from '../pages/LogPage';
 
-import { clearMarkers } from '../components/Map';
+import { loadLocation, removeLocation } from '../components/Map/utils.js';
+import anime from 'animejs';
+
+let callCenterAnimationToDial, dialHeaderAnimationToDial, contactBoxAnimationToDial, deployHelpAnimationToDial, callerInformationAnimationToDial;
 
 const HomePage = () => {
   const [click, setClick] = useState('log');
   const [markerVisibility, setMarkerVisibility] = useState(true);
 
+  useEffect(() => {
+
+    // Animations to ransition from log to dial
+    callCenterAnimationToDial = anime({
+      targets: '.call-center',
+      translateX: -2000,
+      display: 'none',
+      duration: 2000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine'
+    });
+
+    dialHeaderAnimationToDial = anime({
+      targets: '.dial-header',
+      translateX: -3000,
+      duration: 3000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine',
+      begin: function() {
+        document.querySelector('.dial-header').style.display = 'block';
+      },
+    });
+
+    contactBoxAnimationToDial = anime({
+      targets: '.contact-box',
+      translateY: -1000,
+      duration: 2000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine',
+      begin: function() {
+        document.querySelector('.contact-box').style.display = 'block';
+      },
+    });
+
+    deployHelpAnimationToDial = anime({
+      targets: '.deploy-help',
+      translateY: -1000,
+      duration: 2000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine',
+      begin: function() {
+        document.querySelector('.deploy-help').style.display = 'block';
+      },
+    });
+
+    callerInformationAnimationToDial = anime({
+      targets: '.caller-information',
+      translateY: -1000,
+      duration: 2000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine',
+      begin: function() {
+        document.querySelector('.caller-information').style.display = 'block';
+      },
+    });
+
+
+
+  }, []);
+
   const setCall = (lng, lat) => {
-    setClick('dial');
+
     if (window.map) {
-      console.log('moving map');
+;     // console.log('moving map');
       window.map.easeTo({
         pitch: 60,
-        center: [lng, lat]
-      })
+        zoom: 16,
+        center: [lng, lat],
+        bearing: -90,
+        duration: 2000,
+        essential: true,
+        animate: true
+      });
+      window.map.on('moveend', () => {
+        loadLocation(window.map, lng, lat, () => {
+          if (callCenterAnimationToDial) {
+            contactBoxAnimationToDial.play();
+            callCenterAnimationToDial.play();
+            dialHeaderAnimationToDial.play();
+            deployHelpAnimationToDial.play();
+            callerInformationAnimationToDial.play();
+            setClick('dial');
+          }
+        });
+      });
     }
     setMarkerVisibility(false);
+  }
+
+  const setLog = () => {
+    if (window.map) {
+      removeLocation(window.map, () => {
+        setMarkerVisibility(true);
+      })
+      contactBoxAnimationToDial.reverse();
+      callCenterAnimationToDial.reverse();
+      dialHeaderAnimationToDial.reverse();
+      deployHelpAnimationToDial.reverse();
+      callerInformationAnimationToDial.reverse();
+    }
   }
 
   return (
     <div>
       <SideBar click={click}
         setClick={(clickInput) => {
+          if (clickInput === 'log') {
+            setLog();
+          }
           setClick(clickInput);
         }}
       />
@@ -36,8 +140,14 @@ const HomePage = () => {
         click === 'log' || click === 'dial' ?
           <ParentPage>
             <NavBar />
-            <LogPage markerVisibility={markerVisibility} setCall={setCall} />
-            <CallCenter />
+            <LogPage
+              markerVisibility={markerVisibility}
+              dial={click=='dial' ? true : false}
+              setCall={setCall} />
+            <DialHeader />
+            <Contact />
+            <DeployHelp />
+            <CallerInformation />
           </ParentPage>
         : click === 'stats' ?
           <div>

@@ -13,7 +13,7 @@ router.post('/updateUser', async (req, res) => {
         
         let newData = {};
         let invalidKeys = [];
-        let validKeys = ['name', 'address', 'emergency', 'transcript',
+        let validKeys = ['name', 'address', 'emergency', 'transcript', 'caseId',
                          'lat', 'long', 'startDate', 'endDate', 'time', 'status'];
 
         for (let [key, val] of Object.entries(req.body)) {

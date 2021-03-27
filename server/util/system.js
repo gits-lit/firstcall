@@ -1,4 +1,6 @@
 const db = require('./firebase');
+const uuid = require('uuid-random');
+
 const api = {
     createError: (message, data) => {
         return {
@@ -19,21 +21,15 @@ const api = {
 
         if (result.exists()) {
             let old = result.val()['user_id'];
-            await ref.update({
-                user_id: (old + 1)
-            });
-
+            await ref.update({ user_id: (old + 1) });
             return old;
         } else {
-            await ref.set({
-                post_id: 1
-            });
-
+            await ref.set({ user_id: 1 });
             return 0;
         }
     },
     getUser: async (uid) => {
-        let ref = db.ref(`users/${uid}`);
+        let ref = db.ref(`users/user-${uid}`);
         let result = await ref.once('value');
 
         if (result.exists()) {
@@ -52,9 +48,10 @@ const api = {
             return api.createError(`User with id: ${uid} already exists somehow?`);
 
         try {
-            let ref = db.ref(`users/${uid}`);
+            let ref = db.ref(`users/user-${uid}`);
             await ref.set({
                 uid,
+                caseId: uuid(),
                 transcript: null,
                 phoneNumber: null,
                 time: null,
@@ -67,9 +64,7 @@ const api = {
                 long: null
             });
 
-            return api.createSuccess({
-                uid
-            });
+            return api.createSuccess({ uid });
         } catch (e) {
             return api.createError(`Error creating initial user entry [id: ${uid}]: ${e.message}`);
         }
@@ -80,7 +75,7 @@ const api = {
             return api.createError(`User with id: ${uid} does not exist.`);
         
         try {
-            let ref = db.ref(`users/${uid}`);
+            let ref = db.ref(`users/user-${uid}`);
             await ref.update(newData);
 
             return api.createSuccess();
@@ -97,6 +92,18 @@ const api = {
         for (let [name, data] of Object.entries(result.val()))
             users.push(data);
         
+        // sort by statuses -> time
+        users.sort((a, b) => {
+            let status_a = parseInt(a.status);
+            let status_b = parseInt(b.status);
+
+            let date_a = new Date(a.startDate);
+            let date_b = new Date(b.startDate);
+
+            // we prioritize status first then start time
+            return (status_a - status_b) || (date_a - date_b);
+        });
+
         return api.createSuccess({ users });
     }
 };
