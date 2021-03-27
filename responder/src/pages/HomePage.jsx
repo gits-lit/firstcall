@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import socketIOClient from "socket.io-client";
 
 import DialPage from '../pages/DialPage';
 import LogPage from '../pages/LogPage';
@@ -11,11 +12,18 @@ import anime from 'animejs';
 
 let callCenterAnimationToDial, dialHeaderAnimationToDial, contactBoxAnimationToDial, deployHelpAnimationToDial, callerInformationAnimationToDial;
 
+const ENDPOINT = 'https://firstcall-snu.herokuapp.com';
+const socket = socketIOClient(ENDPOINT);
+
 const HomePage = () => {
   const [click, setClick] = useState('log');
   const [markerVisibility, setMarkerVisibility] = useState(true);
 
   useEffect(() => {
+
+    socket.emit('connected', {
+      user_type: 'responder',
+      username: 'Responder'});
 
     // Animations to ransition from log to dial
     callCenterAnimationToDial = anime({
@@ -139,8 +147,8 @@ const HomePage = () => {
             <LogPage
               markerVisibility={markerVisibility}
               dial={click=='dial' ? true : false}
-              setCall={setCall} />
-            <DialPage />
+              setCall={setCall}/>
+            <DialPage socket={socket}/>
           </ParentPage>
         : click === 'stats' ?
           <div>
