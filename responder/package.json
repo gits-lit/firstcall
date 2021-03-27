@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "animejs": "^3.2.1",
     "antd": "^4.14.1",
     "gsap": "^3.6.0",
     "mapbox-gl": "^2.1.1",
@@ -15,6 +16,7 @@
     "react-mapbox-gl": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.0.9",
     "sass": "^1.32.8",
     "threebox-plugin": "^2.1.9",
     "web-vitals": "^1.0.1"
