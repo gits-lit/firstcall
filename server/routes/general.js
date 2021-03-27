@@ -22,7 +22,7 @@ router.get('/translate', async (req, res) => {
                         return;
                     }
                 }
-                await system.test();
+                
                 let result = await translate(text, config);
                 res.json(system.createSuccess({ text: result.text }));
             } catch (e) {
