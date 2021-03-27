@@ -17,7 +17,7 @@ const DeployHelp = () => {
     'unit-img':'http://placekitten.com/200/300'
   },
   {
-    name:'Los Angeles Police Department',
+    name:'Los Angeles Police Department 2',
     address:'2111 E 1st St, Los Angeles, CA 90033',
     type:'Ambulance',
     'unit-img':'http://placekitten.com/200/300'
@@ -59,7 +59,7 @@ const DeployHelp = () => {
           setSearchUnit(searchUnitInput);
         }}
       />
-      <HelpCarousel unit={temp} unitType={searchUnit}/>
+      <HelpCarousel unit={temp} searchValue={searchUnit}/>
     </div>
   )
 }
