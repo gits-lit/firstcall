@@ -1,0 +1,130 @@
+@import '~antd/dist/antd.css';
+
+.help-carousel-container {
+  height: 150px;
+  margin: 15px auto auto;
+  position: relative;
+  width: 100%;
+
+  .ant-carousel {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #DFDFDF;
+    height: 100%;
+    width: 100%;
+    
+    .slick-arrow {
+      z-index: 1000;
+    }
+
+    .slick-next {
+      margin-top: 1px;
+      right: 0% !important;
+      transition: 0.2s;
+      width: 30px;
+      &:before {
+        content: url(../../../assets/next-button.svg) !important;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    
+    .slick-prev {
+      left: 0% !important;
+      margin-top: 1px;
+      transition: 0.2s;
+      width: 30px;
+      &:before {
+        content: url(../../../assets/back-button.svg) !important;
+      }
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    
+  }
+
+  .help-carousel {
+
+    padding: 10px 3%;
+    .carousel-header {
+      display: flex;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    .carousel-header {
+      height: 25px;
+      .index {
+        font-weight: 300;
+      }
+    }
+
+    h1 {
+      color: #333333;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  
+
+    .carousel-body {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      height: 100px;
+      width: 100%;
+
+      .ant-btn {
+        background-color: #40EB5B;
+        border: 1px solid #40EB5B;
+        border-radius: 5px;
+        color: white;
+        height: 30px;
+        overflow: hidden;
+        width: 100px;
+      }
+      .skip {
+        color: black;
+        background-color: white;
+        border: 1px solid #DFDFDF;
+        margin-right: 10px;
+      }
+
+      .carousel-buttons {
+        width: 100%;
+      }
+
+      h1 {
+        line-height: 130%;
+        margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+      }
+
+      h2 {
+        overflow: hidden;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 130%;
+        margin: 0 0 10px;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+      }
+      
+      .description {
+        width: 250px;
+      }
+      
+      .unit-image {
+        border-radius: 50%;
+        height: 80px;
+        margin-right: 10px;
+        object-fit: cover;
+        width: 80px;
+      }
+    }
+  }
+}
