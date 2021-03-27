@@ -1,34 +1,27 @@
-import React, { useEffect, useState }from 'react';
+import React, { useEffect, useState, useRef }from 'react';
 import { Button, Carousel } from 'antd';
 
 import './style.scss';
 
 const HelpCarousel = (props) => {
+  const ref = useRef();
   const [fixedCount, setFixedCount] = useState(0);
-  const [unitCount, setUnitCount] = useState(0);
-  const [changeType, setChangeType] = useState('All');
   let index = 0;
 
   useEffect(() => {
-    let tempChange = 'All';
-    if (props.unitType !== '' && ('ambulance'.startsWith((props.unitType).toLowerCase()) || 'police'.startsWith((props.unitType).toLowerCase()) || 'swat'.startsWith((props.unitType).toLowerCase()))) {
-      tempChange = props.unitType;
-    }
-    setChangeType(tempChange);
-    
     let count = 0;
-    let totalCount = 0;
     for (let i = 0; i < props.unit.length; i++) {
-      if ((props.unit[i].type.toLowerCase()).startsWith(props.unitType.toLowerCase())) {
+      if ((props.unit[i].type.toLowerCase()).startsWith(props.searchValue.toLowerCase()) || (props.unit[i].name.toLowerCase()).startsWith(props.searchValue.toLowerCase())) {
         count += 1;
       }
-      if (tempChange === 'All' || (props.unit[i].type.toLowerCase()).startsWith(tempChange.toLowerCase())) {
-        totalCount += 1;
+    }
+    if (ref && ref.current) {
+      if (count >= 1) {
+        ref.current.goTo(0 , true);
       }
     }
     setFixedCount(count);
-    setUnitCount(totalCount);
-  }, [props.unit, props.type]);
+  }, [props.unit, props.searchValue]);
 
   const settings = {
     arrows: true,
@@ -43,15 +36,18 @@ const HelpCarousel = (props) => {
 
   return (
     <div className="help-carousel-container">
-      <Carousel {...settings}>
+      <Carousel {...settings} ref={ref}>
         {props.unit.map((info) => {
-          if (changeType === 'All' || (info.type.toLowerCase()).startsWith(changeType.toLowerCase())) {
+          if (props.searchValue === ''
+            || (info.type.toLowerCase()).startsWith(props.searchValue.toLowerCase())
+            || (info.name.toLowerCase()).startsWith(props.searchValue.toLowerCase())) {
             index += 1;
             return (
               <div className="help-carousel">
                 <div className="carousel-header">
-                  <h1 className="total">{fixedCount} Results found for &#x2018;{props.unitType}&#x2019;</h1>
-                  <h1 className="index">{index} of {unitCount}</h1>
+                  { props.searchValue ? <h1 className="total">{fixedCount} Results found for &#x2018;{props.searchValue}&#x2019;</h1>
+                  : <h1>{fixedCount} Results found</h1>}
+                  <h1 className="index">{index} of { fixedCount > 0 ? fixedCount : 4 }</h1>
                 </div>
                 <div className="carousel-body">
                   <img src={info['unit-img']} alt="unit-image" className="unit-image" />
@@ -68,6 +64,12 @@ const HelpCarousel = (props) => {
             )
           }
         })}
+        { fixedCount === 0 && props.searchValue.length > 0 ? <div className="help-carousel">
+            <div className="carousel-header">
+              <h1 className="total">0 Results found for &#x2018;{props.searchValue}&#x2019;</h1>
+              <h1 className="index">0 of 0</h1>
+            </div>
+          </div> : null}
         </Carousel>
       </div>
   )

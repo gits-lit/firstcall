@@ -118,6 +118,11 @@ const HomePage = () => {
       removeLocation(window.map, () => {
         setMarkerVisibility(true);
       })
+      contactBoxAnimationToDial.reverse();
+      callCenterAnimationToDial.reverse();
+      dialHeaderAnimationToDial.reverse();
+      deployHelpAnimationToDial.reverse();
+      callerInformationAnimationToDial.reverse();
     }
   }
 

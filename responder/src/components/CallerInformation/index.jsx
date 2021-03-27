@@ -9,14 +9,32 @@ const CallerInformation = () => {
     <div className="caller-information">
       <h1>Caller Information</h1>
       <div className="info-select">
-        <div className="select-tab">
-          Info
+        <div 
+          className={ selected === 'Info' ? 'select-tab active' : 'select-tab'}
+          onClick={() => {
+            setSelected('Info');
+          }}
+        >
+          <div className="text">Info</div>
+          <div className="background"></div>
         </div>
-        <div className="select-tab">
-          Vitals
+        <div
+          className={ selected === 'Images' ? 'select-tab active' : 'select-tab'}
+          onClick={() => {
+            setSelected('Images');
+          }}
+        >
+          <div className="text">Images</div>
+          <div className="background"></div>
         </div>
-        <div className="select-tab">
-          Images
+        <div
+          className={ selected === 'Vitals' ? 'select-tab active' : 'select-tab'}
+          onClick={() => {
+            setSelected('Vitals');
+          }}
+        >
+          <div className="text">Vitals</div>
+          <div className="background"></div>
         </div>
       </div>
     </div>
