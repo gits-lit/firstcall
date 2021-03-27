@@ -21,11 +21,55 @@
   }
 
   .info-select {
-    background: #E9E9E9;
+    align-items: center;
+    background: #EFF2F9;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    position: relative;
     width: 90%;
+    padding: 4px;
+    height: 24px;
 
     .select-tab {
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      text-align: center;
+      width: 33.33%;
+      height: 100%;
 
+      .background {
+        background-color: #BBC0D0;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: 0;
+        z-index: 60;
+        transition: 0.2s;
+      }
+
+      .text {
+        position: absolute;
+        z-index: 1000000;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &.active {
+        color: white;
+
+        .background {
+          left: 0;
+          width: 100%;
+        }
+      }
     }
   }
 }
