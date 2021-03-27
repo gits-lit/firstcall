@@ -1,9 +1,39 @@
 import React, {useState} from 'react';
+
+import HelpCarousel from './HelpCarousel';
 import SearchBar from '../CallCenter/SearchBar';
+
 import './style.scss';
 
 const DeployHelp = () => {
   const [searchUnit, setSearchUnit] = useState('');
+  const [unitType, setUnitType] = useState('Police');
+
+  //temp carousel
+  const temp = [{
+    name:'Los Angeles Police Department',
+    address:'2111 E 1st St, Los Angeles, CA 90033',
+    type:'Police',
+    'unit-img':'http://placekitten.com/200/300'
+  },
+  {
+    name:'Los Angeles Police Department',
+    address:'2111 E 1st St, Los Angeles, CA 90033',
+    type:'Ambulance',
+    'unit-img':'http://placekitten.com/200/300'
+  },
+  {
+    name:'Los 1 Police Department',
+    address:'2111 E 1st St, Los Angeles, CA 90033',
+    type:'Police',
+    'unit-img':'http://placekitten.com/200/300'
+  },
+  {
+    name:'Ls2s Police Department',
+    address:'2111 E 1st St, Los Angeles, CA 90033',
+    type:'Police',
+    'unit-img':'http://placekitten.com/200/300'
+  }]
 
   return (
     <div className="deploy-help">
@@ -29,6 +59,7 @@ const DeployHelp = () => {
           setSearchUnit(searchUnitInput);
         }}
       />
+      <HelpCarousel unit={temp} unitType={searchUnit}/>
     </div>
   )
 }
