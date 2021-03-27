@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Map from './components/Map';
+import Home from './components/Home';
 
 
 
 
 ReactDOM.render(
-  <Map sideBarVis={false} />,
+  <Home/>,
   document.getElementById('root')
 );
