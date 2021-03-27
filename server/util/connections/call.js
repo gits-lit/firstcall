@@ -56,7 +56,7 @@ module.exports = (io, client) => {
 
             // let responders know there is a new user
             client.joinedChat = false;
-            io.to('responders').emit('new', uid);
+            io.to('responders').emit('new', { clientId: id, uid });
 
             // since this is a new user, we'll have all responders connect to this new user as well.
             for (let [id, socket] of Object.entries(responders))
@@ -126,17 +126,25 @@ module.exports = (io, client) => {
     });
 
     client.on('disconnecting', () => {
-        if (userType === undefined) return;
-
         // clear from our cache
         if (isResponder) delete responders[id];
         else {
             delete users[id];
 
             // let responders know this user is gone :(
-            io.to('responders').emit('left', uid);
+            io.to('responders').emit('left', { clientId: id, uid });
         }
     });
 
+    client.on('webrtc', data => {
+        if (isResponder) {
+            let destinationId = data.sendTo;
+            data.sendTo = null;
+
+            io.to(destinationId).emit('webrtc', data);
+        } else {
+            io.to('responders').emit('webrtc', { clientId: id, ...data })
+        }
+    });
     // console.log(`Client [${id}] has connected.`);
 };

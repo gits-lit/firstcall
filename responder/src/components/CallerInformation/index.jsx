@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import InfoTab from './InfoTab';
 import VitalsTab from './VitalsTab';
 
 import './style.scss';
@@ -54,6 +55,7 @@ const CallerInformation = () => {
         </div>
       </div>
       {
+        selected === 'Info' ? <InfoTab /> :
         selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : null
       }
     </div>
