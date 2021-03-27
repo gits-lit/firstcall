@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&display=swap');
+
+.recording-time{
+  margin-left: 2vw;
+  width: 7vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height:4vh;
+
+  .recording-icon{
+    height:100%;
+    width: auto;
+    display: inline-block;
+    padding-right: 1vw;
+  }
+
+  h2{
+    font-family: 'Lexend', sans-serif;
+    font-size: 33px;
+    display: inline-block;
+    font-weight: 500;
+    margin:0;
+  }
+}
