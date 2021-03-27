@@ -1,4 +1,5 @@
 .dial-header {
+  display: flex;
   background-color: white;
   position: absolute;
   top: 0;
@@ -6,23 +7,32 @@
   width: 95vw;
   z-index: 100000000;
   padding: 1vh 2vw 0;
-  display: flex;
   left: 3000px;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
 
-  h1 {
-    font-size: 33px;
-    font-weight: 300;
-    width:60%;
-    display: inline;
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
-    .status-heading {
-      display: inline-block;
-      font-weight: 500;
+    h1 {
+      font-size: 33px;
+      font-weight: 300;
+      width:60%;
+      display: inline;
+
+      .status-heading {
+        display: inline-block;
+        font-weight: 500;
+      }
+    }
+
+    .icon-container{
+      width: 22vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
-
 
 }
