@@ -6,16 +6,23 @@
   width: 95vw;
   z-index: 100000000;
   padding: 1vh 2vw 0;
-  display: none;
+  display: flex;
   left: 3000px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 
   h1 {
     font-size: 33px;
     font-weight: 300;
+    width:60%;
+    display: inline;
 
     .status-heading {
       display: inline-block;
       font-weight: 500;
     }
   }
+
+
 }

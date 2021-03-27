@@ -1,0 +1,27 @@
+.mute{
+  height: 4vh;
+  width:10vw;
+  display:inline-block;
+  border: 1px solid #DFDFDF;
+  border-radius: 6px;
+
+  .icon-container{
+    width:inherit;
+    height:inherit;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .mute-icon{
+      height: 60%;
+      width: auto;
+      margin: 0 1vw;
+    }
+
+    .pause-icon{
+      height: 50%;
+      width: auto;
+      margin-left:1vw;
+    }
+  }
+}
