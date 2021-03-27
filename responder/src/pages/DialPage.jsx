@@ -6,35 +6,34 @@ import DialHeader from '../components/DialHeader';
 import DeployHelp from '../components/DeployHelp';
 
 const DialPage = (props) => {
-  const [data, setData] = useState([]);
+  const [responderData, setResponderData] = useState([]);
 
-  // const getAllResponders = async () => {
-  //   const response = await fetch('https://firstcall-snu.herokuapp.com/api/responders', {
-  //     method: 'GET',
-  //     headers: {
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     }
-  //   });  
+  const getAllResponders = async () => {
+    const response = await fetch('http://firstcall-snu.herokuapp.com/api/responders', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    });  
   
-  //   const data = await response.json();
-  //   if (!data) throw new Error('Empty response from server');
-  //   if (data.error) throw new Error(data.error.message);
-  //   if (!data.success) console.error('Error from server');
+    const data = await response.json();
+    if (!data) throw new Error('Empty response from server');
+    if (data.error) throw new Error(data.error.message);
+    if (!data.success) console.error('Error from server');
 
-  //   setData(data.users);
-  // }
+    setResponderData(data.responders);
+  }
 
-  // useEffect(() => {
-  //   getAllResponders();
-  // }, [])
-
+  useEffect(() => {
+    getAllResponders();
+  }, [])
 
   return (
     <div>
       <DialHeader />
       <Contact />
-      <DeployHelp data={data}/>
+      <DeployHelp responderData={responderData}/>
       <CallerInformation />
     </div>
   )

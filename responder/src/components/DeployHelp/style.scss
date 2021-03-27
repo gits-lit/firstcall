@@ -13,6 +13,15 @@
   right: 2vw;
   z-index: 1000;
 
+  .route-logs {
+    .route-status-header {
+      font-size: 25px;
+      line-height: 130%;
+      justify-content: left;
+      margin: 15px 0 0 !important;
+    }
+  }
+
   .route-options {
     align-items: center;
     display: inline-flex;
