@@ -1,0 +1,49 @@
+.status-options {
+  align-items: center;
+  display: inline-flex;
+  margin: 20px 0 15px;
+  height: 6%;
+  width: 100%;
+
+  .option-num {
+    display: inline-flex;
+    margin-right: 15px;
+    width: calc(100% - 135px);
+
+    .option {
+      display: inline-flex;
+      height: 35px;
+      width: calc(33% - 10px);
+
+      .new-circle, .ongoing-circle, .completed-circle {
+        border-radius: 50%;
+        height: 15px;
+        margin-right: 10px;
+        width: 15px;
+      }
+
+      .new-circle {
+        background-color: #F07373;
+      }
+      .ongoing-circle {
+        background-color: #689FF2;
+
+      }
+      .completed-circle {
+        background-color: #5AE471;
+
+      }
+
+      .option-description {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 100%;
+        width: 0;
+        span {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
