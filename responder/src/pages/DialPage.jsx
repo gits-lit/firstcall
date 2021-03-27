@@ -4,6 +4,7 @@ import CallerInformation from '../components/CallerInformation';
 import Contact from '../components/Contact';
 import DialHeader from '../components/DialHeader';
 import DeployHelp from '../components/DeployHelp';
+import Camera from '../components/Camera';
 
 const DialPage = (props) => {
   const [responderData, setResponderData] = useState([]);
@@ -31,6 +32,7 @@ const DialPage = (props) => {
 
   return (
     <div>
+      <Camera socket={props.socket}/>
       <DialHeader />
       <Contact />
       <DeployHelp responderData={responderData}/>

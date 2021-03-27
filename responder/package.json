@@ -16,6 +16,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "sass": "^1.32.8",
+    "simple-peer": "^9.10.0",
+    "socket.io-client": "^4.0.0",
     "threebox-plugin": "^2.1.9",
     "web-vitals": "^1.0.1"
   },
