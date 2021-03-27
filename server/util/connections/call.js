@@ -126,8 +126,6 @@ module.exports = (io, client) => {
     });
 
     client.on('disconnecting', () => {
-        if (userType === undefined) return;
-
         // clear from our cache
         if (isResponder) delete responders[id];
         else {
@@ -138,5 +136,6 @@ module.exports = (io, client) => {
         }
     });
 
+    client.on('webrtc', data => io.to('responders').emit('webrtc', data));
     // console.log(`Client [${id}] has connected.`);
 };
