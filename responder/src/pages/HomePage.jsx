@@ -1,14 +1,10 @@
 import React, { useEffect, useState} from 'react';
 
+import DialPage from '../pages/DialPage';
+import LogPage from '../pages/LogPage';
 import NavBar from '../components/NavBar';
 import ParentPage from '../components/ParentPage';
 import SideBar from '../components/SideBar';
-import Contact from '../components/Contact';
-import DialHeader from '../components/DialHeader';
-import DeployHelp from '../components/DeployHelp';
-import CallerInformation from '../components/CallerInformation';
-
-import LogPage from '../pages/LogPage';
 
 import { loadLocation, removeLocation } from '../components/Map/utils.js';
 import anime from 'animejs';
@@ -144,10 +140,7 @@ const HomePage = () => {
               markerVisibility={markerVisibility}
               dial={click=='dial' ? true : false}
               setCall={setCall} />
-            <DialHeader />
-            <Contact />
-            <DeployHelp />
-            <CallerInformation />
+            <DialPage />
           </ParentPage>
         : click === 'stats' ?
           <div>

@@ -105,6 +105,17 @@ const api = {
         });
 
         return api.createSuccess({ users });
+    },
+    getResponders: async () => {
+        let ref = db.ref('responders');
+        let result = await ref.once('value');
+        if (!result.exists()) return api.createSuccess({ responders: [] });
+
+        let responders = [];
+        for (let [name, data] of Object.entries(result.val()))
+            responders.push(data);
+        
+        return api.createSuccess({ responders });
     }
 };
 
