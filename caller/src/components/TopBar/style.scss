@@ -1,6 +1,6 @@
 .top-bar{
   height: 8vh;
-  width: 100vw;
+  width: calc(100vw - 4vw);
   background-color: #fff;
   border-radius: 0 0 26px 26px;
   display: flex;
