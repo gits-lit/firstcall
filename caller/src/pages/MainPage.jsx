@@ -14,33 +14,33 @@ const MainPage = () => {
   const [click, setClick] = useState('message');
   return (
     <div>
-    <TopBar />
-    <NavBar click={click}
-      setClick={(clickInput) => {
-        setClick(clickInput);
-      }}
-    />
-    {
-      click === 'message' ?
+      <TopBar />
+      <NavBar
+        click={click}
+        setClick={(clickInput) => {
+          setClick(clickInput);
+        }}
+      />
+      {click === 'message' ? (
         <div>
-
         </div>
-      : click === 'info' ?
+      ) : click === 'info' ? (
+        <SelfInfo socket={socket}/>
+      ) : click === 'help' ? (
+        <div>help</div>
+      ) : click === 'camera' ? (
         <div>
-          <SelfInfo socket={socket}/>
+          <CameraPage />
         </div> 
-      : click === 'help' ?
+      ): click === 'help' ? (
         <div>
           <HelpETA />
         </div>
-      : click === 'camera' ?
-        <div>
-          camera
-        </div> :
-      <></>
-    }
-  </div>
-  )
-}
+      ) : (
+        <></>
+      )}
+    </div>
+  );
+};
 
 export default MainPage;

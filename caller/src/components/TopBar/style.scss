@@ -2,13 +2,15 @@
   background-color: #fff;
   border-radius: 0 0 26px 26px;
   height: 8vh;
-  width: 90vw;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0 5vw;
   border-bottom: 1px solid #DFDFDF;
+  position: fixed;
+  z-index: 100;
 
   .logo {
     height: 50%;
