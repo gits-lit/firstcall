@@ -1,74 +1,70 @@
 import React, { useState , useEffect } from 'react';
-import { Button, Modal } from 'antd';
+import { Button, Modal, Progress } from 'antd';
 import './style.scss';
 
 
 // Basically have ResponderModal with the prop visibleModal set to true or false
-
+let interval;
 const ResponderModal = (props) => {
-  const COLOR_CODES = {
-  info: {
-      color: "green"
-    }
-  };
-
-let remainingPathColor = COLOR_CODES.info.color;
   const [visible, setVisible] = useState(props.visibleModal);
-  const [timer, setTimer] = useState(5);
-
-  const startTimer = () =>{
-    for( let i=0; i<5; i++){
-      setInterval(() => {
-        setTimer(timer - 1);
-        console.log(timer);
-      }, 1000);
-    }
-  }
+  const [seconds, setSeconds] = useState(5);
 
   useEffect(() => {
        setVisible(props.visibleModal);
+       setSeconds(props.seconds);
+       console.log(props.seconds);
    }, [props.visibleModal])
 
-  const handleAccept = () => {
-    setVisible(false);
-  };
+   useEffect(() => {
+    interval = setInterval(() => {
+      setSeconds(prevState => prevState - 1);
+    }, 1000);
+   }, [props.visibleModal])
 
-  if(!visible){
-    return null;
-  }
+   useEffect(() => {
+    if (seconds <= 0 && interval) {
+      clearInterval(interval);
+      props.setIsModalVisible(false);
+      props.setToggleStatus(false);
+    }
+   }, [seconds])
 
-  startTimer();
   return (
-    <div className="modal">
-      <p className="heading">Case Incoming</p>
-      <p className="subtext">Auto-Accept will be disabled <br /> if not accepted</p>
-      <div className="timer-container">
-        <svg className="timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <g className="timer-circle">
-            <circle className="timer-path-elapsed" cx="50" cy="50" r="45" />
-            <path
-              id="timer-path-remaining"
-              stroke-dasharray="283"
-              class="timer-path-remaining ${remainingPathColor}"
-              d="
-              M 50, 50
-              m -45, 0
-              a 45,45 0 1,0 90,0
-              a 45,45 0 1,0 -90,0
-              "
-              ></path>
-          </g>
-        </svg>
-        <div className="timer-label">
-          <p className="count">{timer}</p>
-          <p className="subtext">Seconds</p>
-        </div>
+    <Modal className="modal" visible={visible} closable={false} footer={null}>
+      <div>
+        <h1>Case Incoming</h1>
+        <h2>Auto-Accept will be disabled if not accepted</h2>
       </div>
-      <button className= "accept-button" onClick={handleAccept}>
-        Accept
-      </button>
-      <p className="pause">Pause Auto-Accept</p>
-    </div>
+      <div className="time-body">
+        <Progress percent={(seconds/5) * 100} showInfo={false} 
+          strokeColor="#F99791" type="circle" 
+          strokeLinecap="square" strokeWidth={10} 
+          width={200} trailColor="white"
+        />
+        <div className="time-limit">
+          <h1><p className="time">{seconds}</p><p>Seconds</p></h1>
+        </div>
+
+      </div>
+      <div>
+        <Button className="btn" size="large"
+          onClick={() => {
+            props.setIsModalVisible(false);
+            props.setToggleStatus(true);
+          }}
+        >
+          Accept
+        </Button>
+        <h3 className="pause" 
+          onClick={() => {
+            props.setIsModalVisible(false);
+            props.setToggleStatus(false);
+          }}> 
+          Pause Auto-Accept
+        </h3>
+
+      </div>
+    </Modal>
   )
 }
 

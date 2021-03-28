@@ -1,94 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap');
+@import '~antd/dist/antd.css';
 
-.modal {
+.antd-modal-root {
+  border-radius: 10px;
+}
+
+.antd-modal, .modal {
   text-align: center;
-  width: 426px;
-  height: 478px;
-  background: #fff;
-  border: 2px solid #DFDFDF;
-  border-radius: 34px;
-  transition: 1.1s ease-in;
-  z-index: 5;
-  position:absolute;
-  margin:auto;
-  top: 25%;
-  left: 40%;
-  font-family: 'Lexend', sans-serif;
-  font-weight:300;
+  width: 400px;
 
-  .heading{
-    padding:0;
-    text-align: center;
-    font-weight:500;
-    font-size: 48px;
-    margin-bottom: 0;
+  h1 {
+    font-size: 50px;
+    line-height: 120%;
+    margin: 0;
   }
-
-  .subtext{
+  h2 {
     font-size: 18px;
+    font-weight: 300;
+    line-height: 120%;
+    margin: auto;
+    width: 50%;
   }
-  .timer-container{
-    margin:auto;
-    position: relative;
-    height: 159px;
-    width: 159px;
-    padding-bottom: 20px;
 
-    /* Removes SVG styling that would hide the time label */
-    .timer-circle {
-      fill: none;
-      stroke: 1px solid black;
-    }
+  .ant-progress {
+    border: 4px solid #000000;
+    border-radius: 50%;
+    position: relative; 
+  }
 
-    /* The SVG path that displays the timer's progress */
-    .timer-path-elapsed {
-      stroke-width: 10px;
-      stroke: #F99791;
-    }
-    .base-timer__path-remaining {
-      /* Just as thick as the original ring */
-      stroke-width: 10px;
 
-      /* Rounds the line endings to create a seamless circle */
-      stroke-linecap: round;
 
-      /* Makes sure the animation starts at the top of the circle */
-      transform: rotate(90deg);
-      transform-origin: center;
+  .time-body {
+    margin: 50px auto;
 
-      /* One second aligns with the speed of the countdown timer */
-      transition: 1s linear all;
+    .time-limit {
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid black;
+      border-radius: 50%;
+      height: 160px;
+      position: absolute;
+      right: calc(50% - 80px);
+      top: calc(50.1% - 80px);
+      width: 160px;
 
-      /* Allows the ring to change color when the color value updates */
-      stroke: currentColor;
-    }
-
-    .timer-label{
-      position:absolute;
-      height: 159px;
-      width: 159px;
-      top:0;
-      margin:0;
-
-      p{
-        margin-top: 0px;
-      }
-
-      .count{
-        margin: 50px 0px 0px 0px;
-        font-weight: 500;
-        font-size: 27px;
+      h1 {
+        font-size: 24px;
+        font-weight: 300;
+        p {
+          margin: 10px 0;
+        }
+  
+        .time {
+          font-size: 35px;
+          font-weight: 500;
+        }
       }
     }
   }
-
-  .accept-button{
+  .btn {
     background-color: #5AE471;
-    border: 2px solid #40EB5B;
+    border: none;
     border-radius: 10px;
-    font-size: 28px;
-    font-weight: 500;
-    width: 200px;
+    color: #FFFFFF;
     height: 50px;
+    width: 200px;
+  }
+  .pause {
+    cursor: pointer;
+    font-weight: 300;
+    height: 50px;
+    padding-top: 10px;
+    width: 200px;
+    margin: auto;
   }
 }
