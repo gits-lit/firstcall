@@ -21,7 +21,7 @@ const Landing = (props) => {
         <h1>Improving your</h1>
         <h1>next 911 call</h1>
         <p>
-          In the digital age, you are able view where the location of your uber
+          In the digital age, you are able to view where the location of your uber
           but not your ambulance when you call for help. FirstCall is a
           multi-platform service for improving the next critical emergency.
         </p>

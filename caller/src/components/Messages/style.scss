@@ -1,0 +1,144 @@
+.ant-switch {
+  background-color: #85EC6B;
+  border: 3px solid black;
+  height: 27px;
+  width: 20px;
+}
+.ant-switch-handle {
+  height: 25px;
+  left: -3px;
+  top: -2px;
+  width: 25px;
+  &::before {
+    border: 3px solid black;
+    border-radius: 50%;
+  }
+}
+
+.sub-container {
+  .translate-tab {
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0 10px 15px;
+    width: calc(100% - 20px);
+    
+    h1 {
+      font-size: 15px;
+      height: 100%;
+      vertical-align: center;
+      margin: 0 10px 0;
+    }
+
+    .toggle {
+      align-items: center;
+      display: inline-flex;
+    }
+    
+    .languagues {
+      align-items: center;
+      border: 1px solid #DFDFDF;
+      border-radius: 5px;
+      display: inline-flex;
+    }
+  }
+
+  .messenger {
+    border: 1px solid #DFDFDF;
+
+    border-radius: 10px;
+    padding: 20px 0;
+    height: calc(75% - 30px);
+    width: 100%;
+
+
+    .all-messages {
+      overflow: scroll;
+      height: 80%;
+    }
+  
+    b {
+      font-weight: 500;
+      margin-right: 5px;
+    }
+  
+    .message {
+      border: 1px solid #DFDFDF;
+      box-sizing: border-box;
+      border-radius: 6px;
+      width: fit-content;
+      max-width: 60%;
+      padding: 5px 10px;
+      position: relative;
+      margin-bottom: 20px;
+      font-weight: 300;
+  
+      &::after {
+        width: 11px;
+        height: 11px;
+        content: '';
+        border-radius: 100%;
+        position: absolute;
+        top: 10px;
+        z-index: 55555;
+      }
+  
+      &.caller {
+        margin-left: 30px;
+  
+        &::after {
+          background-color: #689FF2;
+          left: -20px;
+        }
+      }
+  
+      &.responder {
+        display: block;
+        margin-left: auto;
+        position: relative;
+        text-align: right;
+        margin-right: 30px;
+  
+        &::after {
+          background-color: #FA7B92;
+          right: -20px;
+        }
+      }
+    }
+  
+    .input-message {
+      background-color: white;
+      border: 1px solid #DFDFDF;
+      border-radius: 0px 0px 6px 6px;
+      border-top: 0;
+      width: calc(100% - 10vw);
+      margin-left: 5vw;
+      padding: 10px;
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      
+      z-index: 500000000;
+      
+      input {
+        display: inline-block;
+        border: none;
+        width: calc(100% - 60px);
+        background: #F4F4F4;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        height: 40px;
+      }
+      textarea:focus, input:focus{
+        outline: none;
+      }
+      img {
+        cursor: pointer;
+        display: inline-block;
+        height: 40px;
+        vertical-align: top;
+      }
+    }
+  }
+}

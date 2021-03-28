@@ -1,0 +1,30 @@
+@import 'antd/dist/antd.css';
+
+.language-dropdown {
+  position: relative;
+  height: 30px;
+  width: 30vw;
+  z-index: 1;
+
+  .arrow-down {
+    right: 10px;
+    position: absolute;
+    top: 12px;
+  }
+  
+  .language-filter {
+    display: block;
+    border-right: 1px solid #DFDFDF;
+    color: black;
+    font-weight: #333333;
+    height: 30px;
+    overflow: hidden;
+    z-index: 10000;
+    padding: 5px 22px;
+    //width: 100% !important;
+  
+    .anticon {
+      display: none !important;
+    }
+  }
+}
