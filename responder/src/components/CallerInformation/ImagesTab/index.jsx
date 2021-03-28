@@ -4,7 +4,14 @@ const ImagesTab = (props) => {
 
   return (
     <div className="images-tab">
-      <h1>everything</h1>
+      {props.image.map((image) => {
+        return (
+          <div className="image">
+            <div>{image.name}</div>
+            <div>{image.score}</div>
+          </div>
+        )
+      })}
     </div>
   )
 }

@@ -58,7 +58,7 @@ const CallerInformation = (props) => {
       {
         selected === 'Info' ? <InfoTab socket={props.socket}/> :
         selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : 
-        <ImagesTab socket={props.socket}/>
+        <ImagesTab image={props.image} socket={props.socket}/>
       }
     </div>
   )

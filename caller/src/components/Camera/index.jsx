@@ -48,8 +48,8 @@ const CameraComponent = (props) => {
   //const [stream, setStream] = useState();
 
   const videoConstraints = {
-    width: 900,
-    height: 900,
+    width: 812,
+    height: 812,
     facingMode: 'user',
   };
 
@@ -58,11 +58,11 @@ const CameraComponent = (props) => {
   }, []);
 
   const takePicture = () => {
-    canvasRef.current.width = 900;
-    canvasRef.current.height = 900;
+    canvasRef.current.width = 812;
+    canvasRef.current.height = 812;
     var context = canvasRef.current.getContext('2d');
-    context.fillRect(0, 0, 900, 900);
-    context.drawImage(webcamRef.current, 0, 0, 900, 900);
+    context.fillRect(0, 0, 812, 812);
+    context.drawImage(webcamRef.current, 0, 0, 812, 812);
     const base64Canvas = canvasRef.current.toDataURL("image/jpeg");
     //console.log(base64Canvas);
     //setImageSrc(base64Canvas)

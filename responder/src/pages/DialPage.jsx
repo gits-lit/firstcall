@@ -9,6 +9,7 @@ import Image from '../components/Image';
 
 const DialPage = (props) => {
   const [responderData, setResponderData] = useState([]);
+  const [image, setImage] = useState([]);
 
   const getAllResponders = async () => {
     const response = await fetch('http://firstcall-snu.herokuapp.com/api/responders', {
@@ -37,8 +38,8 @@ const DialPage = (props) => {
       <DialHeader />
       <Contact socket={props.socket}/>
       <DeployHelp responderData={responderData}/>
-      <CallerInformation socket={props.socket}/>
-      <Image socket={props.socket}/>
+      <CallerInformation image={image} socket={props.socket}/>
+      <Image setImage={setImage} socket={props.socket}/>
     </div>
   )
 }
