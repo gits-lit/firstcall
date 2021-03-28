@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import CameraPage from './CameraPage';
 import HelpETA from '../components/HelpETA'
 import Messages from '../components/Messages'
 import NavBar from '../components/NavBar'
@@ -10,6 +11,7 @@ import socketIOClient from "socket.io-client";
 
 const ENDPOINT = 'https://firstcall-snu.herokuapp.com';
 const socket = socketIOClient(ENDPOINT);
+
 
 const MainPage = () => {
   const [click, setClick] = useState('message');
