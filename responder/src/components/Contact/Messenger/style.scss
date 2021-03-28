@@ -6,6 +6,37 @@
     margin-right: 5px;
   }
 
+  .translate-tab {
+    .ant-switch {
+      margin: 0;
+    }
+
+    align-items: center;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 0 10px 15px 0;
+    width: calc(100% - 10px);
+    
+    h1 {
+      font-size: 15px;
+      height: 100%;
+      vertical-align: center;
+      margin: 0 10px 0;
+    }
+
+    .toggle {
+      align-items: center;
+      display: inline-flex;
+    }
+    
+    .languagues {
+      align-items: center;
+      border: 1px solid #DFDFDF;
+      border-radius: 5px;
+      display: inline-flex;
+    }
+  }
+
 
   .message {
     border: 1px solid #DFDFDF;
