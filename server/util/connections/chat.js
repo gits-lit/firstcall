@@ -35,7 +35,7 @@ module.exports = async (io, client) => {
         if (data.user_type === 'responder')
             io.to(data.uid).emit('image', formatMessage(data.image));
         else
-            io.to('responders').emit('message', formatMessage(data.image));
+            io.to('responders'g).emit('message', formatMessage(data.image));
     });
 
     /*client.on('disconnecting', data => {
