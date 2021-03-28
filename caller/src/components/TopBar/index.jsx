@@ -4,13 +4,13 @@ import logo from '.../../../public/logo.svg'
 
 import './style.scss';
 
-const NavBar = (props) => {
+const TopBar = (props) => {
   return (
-    <div className="nav-bar">
+    <div className="top-bar">
       <img className="logo" src={logo} alt="logo pin"/>
       <StatusOptions data={{}}/>
     </div>
   )
 }
 
-export default NavBar;
+export default TopBar;
