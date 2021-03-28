@@ -42,9 +42,9 @@ const CameraComponent =  (props) => {
   //const [stream, setStream] = useState();
 
   const videoConstraints = {
-    width: 1280,
-    height: 720,
-    facingMode: 'user',
+    width: 900,
+    height: 900,
+    facingMode: "user"
   };
 
   const startCam = async () => {
@@ -55,6 +55,7 @@ const CameraComponent =  (props) => {
 
     // Push tracks from local stream to peer connection
     localStream.getTracks().forEach((track) => {
+      track.applyConstraints(videoConstraints);
       pc.addTrack(track, localStream);
     });
 

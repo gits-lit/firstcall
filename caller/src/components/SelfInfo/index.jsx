@@ -11,6 +11,11 @@ const SelfInfo = (props) => {
   const [allergyValue, setAllergyValue] = useState('');
 
   const addMedicalTags = (medValue) => {
+    props.socket.emit('form', {
+      type: 'tags',
+      value: [...medicalTags, medValue],
+      id: 'medical'
+    })
     setMedicalTags([...medicalTags, medValue]);
   };
 
@@ -21,10 +26,20 @@ const SelfInfo = (props) => {
         newArr.push(medicalTags[i]);
       }
     }
+    props.socket.emit('form', {
+      type: 'tags',
+      value: newArr,
+      id: 'medical'
+    })
     setMedicalTags(newArr);
   };
 
   const addAllergiesTags = (allValue) => {
+    props.socket.emit('form', {
+      type: 'tags',
+      value: [...allergiesTags, allValue],
+      id: 'allergies'
+    })
     setAllergiesTags([...allergiesTags, allValue]);
   };
 
@@ -35,8 +50,28 @@ const SelfInfo = (props) => {
         newArr.push(allergiesTags[i]);
       }
     }
+    props.socket.emit('form', {
+      type: 'tags',
+      value: newArr,
+      id: 'allergies'
+    })
     setAllergiesTags(newArr);
   };
+
+  const typeInput = (e) => {
+    props.socket.emit('form', {
+      type: 'input',
+      value: e.target.value,
+      id: e.target.id
+    })
+  }
+
+  const onRadio = (e) => {
+    props.socket.emit('form', {
+      type: 'radio',
+      value: e.target.value,
+    })
+  }
 
   return (
     <div className="sub-container">
@@ -48,25 +83,25 @@ const SelfInfo = (props) => {
         <h2>Location</h2>
         <div className="info">
           <h1>Caller Name</h1>
-          <input type="text" />
+          <input type="text" id="name" onChange={typeInput}/>
         </div>
         <div className="info">
           <h1>Address</h1>
-          <input type="text"/>
+          <input type="text" id="address" onChange={typeInput}/>
         </div>
         <div className="two-info">
           <div className="info left">
             <h1>Apt &#35;</h1>
-            <input type="text"/>
+            <input type="text" id="apartment" onChange={typeInput}/>
           </div>
           <div className="info">
             <h1>Floor &#35;</h1>
-            <input type="text"/>
+            <input type="text" id="floor" onChange={typeInput}/>
           </div>
         </div>
         <h2>Patient Health</h2>
         <h3>Calling on behalf of someone?</h3>
-        <form className="checkmark">
+        <form className="checkmark" onChange={onRadio}>
           <input className="behalf"name="behalf" type="radio" value="Yes"/>
           <label for="Yes">Yes</label><br/>
           <input className="behalf" name="behalf" type="radio" value="No"/>
@@ -75,11 +110,11 @@ const SelfInfo = (props) => {
         <div className="two-info">
           <div className="info left">
             <h1>Height</h1>
-            <input type="text"/>
+            <input type="text" id="height" onChange={typeInput}/>
           </div>
           <div className="info">
             <h1>Weight</h1>
-            <input type="text"/>
+            <input type="text" id="weight" onChange={typeInput}/>
           </div>
         </div>
           <h2>Medical Conditions</h2>
@@ -147,7 +182,7 @@ const SelfInfo = (props) => {
           <h2>Medications?</h2>
           <div className="info">
           <h1>Additional Notes</h1>
-          <span className="textarea" role="textbox" contentEditable={true}></span>
+          <textarea className="textarea" role="textbox" id="notes" onChange={typeInput} />
         </div>
       </div>
     </div>

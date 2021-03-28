@@ -74,7 +74,7 @@ const CallCenter = (props) => {
       <div className="call-center-header">
         <h1 className="center-name">Call Center</h1>
         <div className="toggle-button">
-          <Switch defaultChecked />
+          <Switch />
           <h2>Auto-Accept cases</h2>
         </div>
       </div>

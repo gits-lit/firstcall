@@ -34,9 +34,9 @@ const DialPage = (props) => {
     <div>
       <Camera socket={props.socket} startTakingInCalls={props.startTakingInCalls}/>
       <DialHeader />
-      <Contact />
+      <Contact socket={props.socket}/>
       <DeployHelp responderData={responderData}/>
-      <CallerInformation />
+      <CallerInformation socket={props.socket}/>
     </div>
   )
 }
