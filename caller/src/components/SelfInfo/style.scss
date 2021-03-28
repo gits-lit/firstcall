@@ -51,7 +51,7 @@
         font-weight: #333333;
         height: 35px;
         padding: 5px 22px;
-        width: calc(100% - 46px);
+        width: 100%;
       }
   
       .textarea {
@@ -66,7 +66,7 @@
         padding: 5px 22px;
         overflow: hidden;
         resize: both;
-        width: calc(100% - 46px);
+        width: 100%;
       }
     }
   
@@ -95,7 +95,7 @@
           padding-top: 5px;
           padding-right: 15px;
           position: relative;
-          width: calc(100% - 15px);
+          width: 100%;
         }
         .close {
           color: #7D7D7D;
@@ -111,10 +111,10 @@
         border: 1px dotted #DFDFDFDF;
         border-radius: 5px;
         cursor: pointer;
-        height: 23px;
+        height: 25px;
         margin: 4px 5px;
         padding-left: 10px;
-        width: 78px;
+        width: 100px;
         
         &::placeholder {
           color: black;
