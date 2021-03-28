@@ -18,6 +18,7 @@ const socket = socketIOClient(ENDPOINT);
 const HomePage = () => {
   const [click, setClick] = useState('log');
   const [markerVisibility, setMarkerVisibility] = useState(true);
+  const [startTakingInCalls, setStartTakingInCalls] = useState(false);
 
   useEffect(() => {
 
@@ -147,8 +148,9 @@ const HomePage = () => {
             <LogPage
               markerVisibility={markerVisibility}
               dial={click=='dial' ? true : false}
-              setCall={setCall}/>
-            <DialPage socket={socket}/>
+              setCall={setCall}
+              setStartTakingInCalls={setStartTakingInCalls}/>
+            <DialPage socket={socket} startTakingInCalls={startTakingInCalls}/>
           </ParentPage>
         : click === 'stats' ?
           <div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RouteLog from './RouteLog'
-
+import arrow from '../../assets/arrow.svg'
 
 import './style.scss'
 
@@ -36,9 +36,10 @@ const HelpETA = (props) => {
     dispatch:'2:12PM'
   }]
   return (
-    <div className="help-container">
-      <div>
-      <h1 className="help-header">Help ETA</h1>
+    <div className="sub-container">
+      <div className="header">
+        <h1 className="title">Help ETA</h1>
+        <img src={arrow} alt="arrow" className="arrow" />
       </div>
       <div className="route-logs">
         <h1 className="route-status-header">Requested</h1>

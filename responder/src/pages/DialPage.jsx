@@ -32,7 +32,7 @@ const DialPage = (props) => {
 
   return (
     <div>
-      <Camera socket={props.socket}/>
+      <Camera socket={props.socket} startTakingInCalls={props.startTakingInCalls}/>
       <DialHeader />
       <Contact />
       <DeployHelp responderData={responderData}/>

@@ -90,7 +90,10 @@ const Log = (props) => {
           backgroundColor: '#FFFFFF',
           border: `1px solid ${color}`,
           color: '#333333'
-        }}>
+        }} onClick={() => {
+            props.setStartTakingInCalls(true);
+          }
+        }>
           {condition}
       </Button>
       }
