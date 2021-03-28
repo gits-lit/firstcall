@@ -1,0 +1,17 @@
+.nav-bar{
+  height: 8vh;
+  width: 100vw;
+  background-color: #fff;
+  border-radius: 0 0 26px 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2vw;
+  border: 1px solid #DFDFDF;
+
+  .logo{
+    height: 55%;
+    width: auto;
+  }
+}
