@@ -6,6 +6,7 @@ import './style.scss';
 
 import CaseFilter from './CaseFilter';
 import Log from './Log';
+import ResponderModal from '../ResponderModal'
 import SearchBar from './SearchBar';
 
 let animation;
@@ -17,6 +18,8 @@ const CallCenter = (props) => {
   const [completedCount, setCompleted] = useState(0);
   const [newCount, setNewCount] = useState(0);
   const [ongoingCount, setOngoingCount] = useState(0);
+  const [toggleStatus, setToggleStatus] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     let completedStatus = 0;
@@ -74,7 +77,23 @@ const CallCenter = (props) => {
       <div className="call-center-header">
         <h1 className="center-name">Call Center</h1>
         <div className="toggle-button">
-          <Switch />
+          <Switch checked={toggleStatus}
+            onChange={(e) => {
+              setToggleStatus(!toggleStatus);
+              if (toggleStatus===false) {
+                setIsModalVisible(true);
+              }
+              else {
+                setIsModalVisible(false);
+              }
+            }}/>
+          <ResponderModal visibleModal={isModalVisible} seconds={5}
+            setIsModalVisible={(visibleInput) => {
+              setIsModalVisible(visibleInput);
+            }}
+            setToggleStatus={(toggleInput) => {
+              setToggleStatus(toggleInput);
+            }}/>
           <h2>Auto-Accept cases</h2>
         </div>
       </div>

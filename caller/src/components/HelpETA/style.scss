@@ -11,6 +11,8 @@
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
+    line-height: 0px;
+    margin-bottom: 12px;
     .title {
       font-size: 28px;
       font-weight: 500;
@@ -28,7 +30,7 @@
   }
 
   .route-logs {
-    height: calc(92% - 40px);
+    height: calc(92%);
     overflow: scroll;
 
     .route-status-header {
