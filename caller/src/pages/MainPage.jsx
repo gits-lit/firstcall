@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import HelpETA from '../components/HelpETA'
 import NavBar from '../components/NavBar'
+import SelfInfo from '../components/SelfInfo'
 import TopBar from '../components/TopBar'
 
 const MainPage = () => {
@@ -17,15 +18,15 @@ const MainPage = () => {
     {
       click === 'message' ?
         <div>
-          <HelpETA/>
+
         </div>
       : click === 'info' ?
         <div>
-          info
+          <SelfInfo />
         </div> 
       : click === 'help' ?
         <div>
-          help
+          <HelpETA />
         </div>
       : click === 'camera' ?
         <div>
