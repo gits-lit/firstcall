@@ -1,0 +1,23 @@
+.cameras {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .webcam-video {
+    position: absolute;
+    z-index: -10;
+    left: -100%;
+    top: 5%;
+    height: 90%;
+  }
+
+  .call-button-three {
+    position: absolute;
+    top: 50%;
+  }
+  .test-input {
+    position: absolute;
+    top: 50%;
+  }
+}
