@@ -1,0 +1,30 @@
+.Heart {
+  position: absolute;
+  width: 175px;
+  height: 120px;
+  right: 5%;
+  top: 100px;
+  background: white;
+  border-radius: 8.65116px;
+  padding: 0px 10px;
+
+  .title {
+    font-weight: 500;
+    margin: 12px 0px 0px 0px;
+  }
+
+  .sub-title {
+    margin: 0px;
+    font-weight: 400;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    h4 {
+      margin: 0px;
+    }
+  }
+
+
+}
