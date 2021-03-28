@@ -112,7 +112,7 @@ const CameraComponent = (props) => {
       <div className="back" onClick={() => props.setClick('')}>
         <img src={BackBubble} />
       </div>
-      <Heart />
+      <Heart BPM={props.BPM} setBPM={props.setBPM} />
       <video
         ref={webcamRef}
         className="webcam-video"

@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 import Camera from '../components/Camera';
 
 const CameraPage = (props) => {
-  return (
+    const [BPM, setBPM] = useState('N/A')
+
+    return (
     <div className="CameraPage">
-      <Camera setClick={props.setClick} />
+      <Camera BPM={BPM} setBPM={setBPM} setClick={props.setClick} />
     </div>
   );
 };
