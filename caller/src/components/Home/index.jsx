@@ -1,5 +1,4 @@
 import Camera from '../Camera'
-import NavBar from '../NavBar'
 
 import socketIOClient from "socket.io-client";
 
@@ -8,7 +7,9 @@ const socket = socketIOClient(ENDPOINT);
 
 const Home = () => {
   return (
-    <NavBar/>
+    <div>
+      
+    </div>
   )
 }
 
