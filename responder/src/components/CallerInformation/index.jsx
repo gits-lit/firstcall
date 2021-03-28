@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 
 import InfoTab from './InfoTab';
 import VitalsTab from './VitalsTab';
+import ImagesTab from './ImagesTab';
 
 import './style.scss';
 
-const CallerInformation = () => {
+const CallerInformation = (props) => {
   const [selected, setSelected] = useState('Info');
   const [emotions, setEmotions] = useState([]);
 
@@ -55,8 +56,9 @@ const CallerInformation = () => {
         </div>
       </div>
       {
-        selected === 'Info' ? <InfoTab /> :
-        selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : null
+        selected === 'Info' ? <InfoTab socket={props.socket}/> :
+        selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : 
+        <ImagesTab />
       }
     </div>
   )

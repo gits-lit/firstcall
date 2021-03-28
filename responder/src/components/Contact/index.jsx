@@ -4,7 +4,7 @@ import './style.scss';
 import Messenger from './Messenger';
 import Transcripts from './Transcripts';
 
-const Contact = () => {
+const Contact = (props) => {
   const [transcript, setTranscript] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ const Contact = () => {
         }}>
         <h1>Transcript</h1>
       </div>
-      {transcript ? <Transcripts />: <Messenger />}
+      {transcript ? <Transcripts />: <Messenger socket={props.socket}/>}
     </div>
   )
 }

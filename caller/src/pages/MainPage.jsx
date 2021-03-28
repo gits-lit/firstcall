@@ -5,6 +5,11 @@ import NavBar from '../components/NavBar'
 import SelfInfo from '../components/SelfInfo'
 import TopBar from '../components/TopBar'
 
+import socketIOClient from "socket.io-client";
+
+const ENDPOINT = 'https://firstcall-snu.herokuapp.com';
+const socket = socketIOClient(ENDPOINT);
+
 const MainPage = () => {
   const [click, setClick] = useState('message');
   return (
@@ -22,7 +27,7 @@ const MainPage = () => {
         </div>
       : click === 'info' ?
         <div>
-          <SelfInfo />
+          <SelfInfo socket={socket}/>
         </div> 
       : click === 'help' ?
         <div>
