@@ -25,7 +25,7 @@ const MainPage = () => {
       />
       {click === 'message' ? (
         <div>
-          <Messages />
+          <Messages socket={socket}/>
         </div>
       ) : click === 'info' ? (
         <SelfInfo socket={socket} />

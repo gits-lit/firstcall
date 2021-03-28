@@ -7,6 +7,7 @@ import './style.scss';
 
 const LanguageDropDown = (props) => {
   const twoLetterLanguages = {
+    "English":"EN",
     "Spanish":"ES",
     "Mandarin":"ZN",
     "Hindi":"HI",
@@ -30,6 +31,7 @@ const LanguageDropDown = (props) => {
       <Dropdown className="language-filter"
         overlay={
           <Menu onClick={onClick} >
+            { currentSelected !== "English" ? <Menu.Item key="English" >English</Menu.Item> : null }
             { currentSelected !== "Spanish" ? <Menu.Item key="Spanish" >Spanish</Menu.Item> : null }
             { currentSelected !== "Mandarin" ? <Menu.Item key="Mandarin" >Mandarin Chinese</Menu.Item> : null }
             { currentSelected !== "Hindi" ? <Menu.Item key="Hindi" >Hindi</Menu.Item> : null }
