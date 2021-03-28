@@ -4,6 +4,9 @@ const system = require('../util/system');
 const translate = require('@vitalets/google-translate-api');
 const { isSupported } = require('@vitalets/google-translate-api/languages');
 
+const vision = require('@google-cloud/vision');
+const imageClient = new vision.ImageAnnotatorClient();
+
 router.get('/responders', async (req, res) => res.json(await system.getResponders()));
 router.get('/translate', async (req, res) => {
     let toLang = req.query.to;
@@ -32,6 +35,24 @@ router.get('/translate', async (req, res) => {
             res.json(system.createError('Please provide a valid language code to translate to.'));
     else
         res.json(system.createError('Please provide a valid text to translate.'));
+});
+
+router.get('/detect', async (req, res) => {
+    let base64 = req.query.base64;
+
+    if (base64 && base64.length > 0) {
+        const config = {
+            image: {
+                content: Buffer.from(base64, 'base64')
+            }
+        };
+
+        const [result] = await imageClient.objectLocalization(config);
+        const objects = result.localizedObjectAnnotations;
+        res.json(system.createSuccess({ objects }));
+    } else {
+        res.json(system.createError('Please provide a valid base64 image string.'));
+    }
 });
 
 module.exports = router;
