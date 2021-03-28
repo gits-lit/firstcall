@@ -1,12 +1,16 @@
 .nav-bar {
     align-items: center;
+    background-color:white;
     bottom: 0;
+    border-top: 1px solid #DFDFDF;
+    border-radius: 26px 26px 0 0;
     display: inline-flex;
     flex-direction: row;
-    height: 10vh;
-    padding: 0 2vw;
+    height: 8vh;
+    padding: 0 3vw;
     position: absolute;
-    width: 96vw;
+    width: 94vw;
+    z-index: 999999999;
 
     .tab {
       display: inline-flex;

@@ -1,0 +1,72 @@
+.route-status {
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 65px;
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 0 2%;
+  position: relative;
+  width: 95%;
+
+  .route-line {
+    border-radius: 10px;
+    height: 8px;
+    left: 3%;
+    padding: 0;
+    position: absolute;
+    top: -4px;
+    width: 25%;
+  }
+
+  .entry {
+    align-items: center;
+    display: flex;
+    height: 80%;
+
+    div {
+      padding-right: 5px;
+      max-width: 100%;
+    }
+  }
+
+  .route-dispatch {
+    width: 70px;
+  }
+
+  .route-type {
+    width: calc(29% - 23px);
+  }
+
+  .route-eta {
+    width: calc(14% - 23px)
+  }
+
+  .route-unitId {
+    width: calc(39% - 23px)
+  }
+
+  h1 {
+    color: #626262;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 100%;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  h2 {
+    display: inline-block;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+}

@@ -14,18 +14,18 @@
     margin-right: 7px;
     justify-content: space-between;
     //width: calc(100% - 135px);
-    width:100%;
+    width: calc(100% - 3vw);
 
     .option {
       display: inline-flex;
       height: 35px;
-      //width: calc(33% - 10px);
-      width: 100%;
+      width: calc(20% - 5px);
+
 
       .requested-circle, .enroute-circle, .onsite-circle {
         border-radius: 50%;
         height: 13px;
-        margin-right: 10px;
+        margin-right: 5px;
         width: 13px;
       }
 
