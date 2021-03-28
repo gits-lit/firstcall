@@ -1,3 +1,9 @@
+.messages {
+  //display: none;
+  position: absolute;
+  bottom: -1000px;
+}
+
 .ant-switch {
   background-color: #85EC6B;
   border: 3px solid black;
@@ -16,6 +22,7 @@
 }
 
 .sub-container {
+  background-color: white;
   .translate-tab {
     align-items: center;
     display: inline-flex;

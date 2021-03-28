@@ -7,7 +7,7 @@ const CameraPage = (props) => {
 
     return (
     <div className="CameraPage">
-      <Camera BPM={BPM} setBPM={setBPM} setClick={props.setClick} />
+      <Camera BPM={BPM} setBPM={setBPM} setClick={props.setClick} socket={props.socket} />
     </div>
   );
 };

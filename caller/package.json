@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@firebase/firestore": "^2.2.1",
+    "animejs": "^3.2.1",
     "antd": "^4.14.1",
     "cwise": "^1.0.10",
     "firebase": "^8.3.1",

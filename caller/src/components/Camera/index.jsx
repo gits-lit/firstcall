@@ -41,7 +41,10 @@ let localStream = null;
 const CameraComponent = (props) => {
   const webcamRef = useRef(null);
   const webcamRefTwo = useRef(null);
-  const inputRef = useRef(null);
+  const imageRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [imageSrc, setImageSrc] = useState('');
+  //const inputRef = useRef(null);
   //const [stream, setStream] = useState();
 
   const videoConstraints = {
@@ -49,6 +52,26 @@ const CameraComponent = (props) => {
     height: 900,
     facingMode: 'user',
   };
+
+  useEffect(() => {
+    props.socket.emit('joinRoom', 1);
+  }, []);
+
+  const takePicture = () => {
+    canvasRef.current.width = 900;
+    canvasRef.current.height = 900;
+    var context = canvasRef.current.getContext('2d');
+    context.fillRect(0, 0, 900, 900);
+    context.drawImage(webcamRef.current, 0, 0, 900, 900);
+    const base64Canvas = canvasRef.current.toDataURL("image/jpeg");
+    //console.log(base64Canvas);
+    //setImageSrc(base64Canvas)
+   // imageRef.current.setAttribute('src' ,base64Canvas);
+   props.socket.emit('imageSend', {
+     user_type: 'user',
+     image: base64Canvas
+   })
+  }
 
   const startCam = async () => {
     localStream = await navigator.mediaDevices.getUserMedia({
@@ -68,7 +91,7 @@ const CameraComponent = (props) => {
     const offerCandidates = callDoc.collection('offerCandidates');
     const answerCandidates = callDoc.collection('answerCandidates');
 
-    inputRef.current.value = callDoc.id;
+    //inputRef.current.value = callDoc.id;
 
     // Get candidates for caller, save to db
     pc.onicecandidate = (event) => {
@@ -119,14 +142,16 @@ const CameraComponent = (props) => {
         autoPlay
         playsInline
       ></video>
-      <input className="test-input" ref={inputRef} />
       <button className="call-button-three" onClick={startCam}>
         Start Own Cam
       </button>
-      <Button className="picture">
+      <Button className="picture"
+        onClick={takePicture}>
         <img src={CameraPic} style={{ marginRight: '8px' }} />
         Take Picture
       </Button>
+      <canvas ref={canvasRef}/>
+      <img src={imageSrc} ref={imageRef}/>
     </div>
   );
 };
