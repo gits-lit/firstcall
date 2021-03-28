@@ -38,6 +38,13 @@ module.exports = async (io, client) => {
             io.to('responders').emit('image', formatMessage(data.image));
     });
 
+    client.on('dataSend', data => {
+        if (data.user_type === 'responder')
+            io.to(data.uid).emit('data', data.value);
+        else
+            io.to('responders').emit('data', data.value);
+    });
+
     /*client.on('disconnecting', data => {
         if (!client.joinedChat) return;
 
