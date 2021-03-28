@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { Switch } from 'antd';
 
+import LanguageDropdown from './LanguageDropdown'
 import messagebutton from '../../../assets/message-button.png';
 
 import './style.scss';
 
 const Messenger = () => {
   const [value, setValue] = useState('');
+  const [language, setLanguage] = useState('EN');
 
   const [messageData, setMessageData] = useState([{
     sender: 'caller',
@@ -32,6 +35,18 @@ const Messenger = () => {
 
   return (
     <div className="messenger">
+      <div className="translate-tab">
+          <div className="languagues">
+            <LanguageDropdown setLanguage={(languageInput) => {
+              setLanguage(languageInput);
+            }}/>
+            <h1>{language}</h1>
+          </div>
+          <div className="toggle">
+            <Switch defaultChecked />
+            <h1>Translate</h1>
+          </div>
+        </div>
       <div className="messages">
     {messageData.map((message) => {
       if (message.sender === 'responder') {
