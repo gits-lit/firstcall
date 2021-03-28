@@ -37,7 +37,7 @@ const CallCenter = (props) => {
       setTimeout(() => {
         setIsModalVisible(prevState => true);
       }, 1000);
-    }, 500000)
+    }, 15000)
   }, [])
 
   useEffect(() => {
@@ -97,6 +97,7 @@ const CallCenter = (props) => {
         <h1 className="center-name">Call Center</h1>
         <div className="toggle-button">
           <Switch
+          checked
             onChange={(e) => {
               setToggleStatus(!toggleStatus);
             }}/>

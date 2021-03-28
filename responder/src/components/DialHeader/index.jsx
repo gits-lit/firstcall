@@ -10,9 +10,11 @@ const DialHeader = (props) => {
   const [seconds, setSeconds] = useState(0)
 
   useEffect(() => {
-    interval = setInterval(() => {
-      setSeconds(seconds => seconds + 1);
-    }, 1000);
+    setTimeout(() => {
+      interval = setInterval(() => {
+        setSeconds(seconds => seconds + 1);
+      }, 1000);
+    }, 17000);
    }, [])
 
   return (
