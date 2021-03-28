@@ -74,7 +74,7 @@ const VitalsTab = (props) => {
                   {emotion.feeling}
                 </div>
                 <div className="certainty">
-                  {emotion.certainty}
+                  {Math.floor(emotion.confidence * 100)}
                 </div>
               </div>
             )

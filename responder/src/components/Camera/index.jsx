@@ -138,9 +138,6 @@ const Camera = (props) => {
           }
         });
       });
-      // THERE IS A CALL, LET'S ANIMATE THE DIV IN
-      cameraAnimation.play();
-      cameraAnimationDown.play();
 
       // FACE API
       Promise.all([
@@ -159,10 +156,25 @@ const Camera = (props) => {
             if (detections2 && detections2.expressions) {
               let mood = 'angry';
               let max = 0;
-              console.log(detections2.expressions);            
+              console.log(detections2.expressions); 
+              props.setEmotions([{
+                feeling: 'Neutral',
+                confidence: detections2.expressions.neutral
+              }, {
+                feeling: 'Sad',
+                confidence: detections2.expressions.sad
+              }, {
+                feeling: 'Fearful',
+                confidence: detections2.expressions.fearful
+              }])           
             }
           }
-        }, 10000)
+          props.emit('dataSend', {
+            uid: 1,
+            user_type: 'responder',
+            value: heartRate
+          });
+        }, 5000)
 
       interval = setInterval(async () => {
         //capture();
@@ -192,14 +204,14 @@ const Camera = (props) => {
             const height = box.height * (canvas.height / 900);
             ctx.beginPath();
             var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-            gradient.addColorStop("0", "#0761FF");
-            gradient.addColorStop("0.5", "#FF59F8");
-            gradient.addColorStop("1", "#AE72FF");
+            gradient.addColorStop("0", "#F07373");
+            gradient.addColorStop("0.5", "#F07373");
+            gradient.addColorStop("1", "#F07373");
             //#0761FF -53.27%, #FF59F8 89.25%, #AE72FF 139.44%
             ctx.lineWidth = "6";
             ctx.strokeStyle = gradient;
             ctx.rect(box.x, box.y, box.width, box.height);
-            const foreheadCoords = utils.getForeheadCoords(box.x, box.y, box.width, box.height);
+            const foreheadCoords = utils.getForeheadCoords(box.x, box.y - 150, box.width, box.height + 50);
 
             ctx.stroke();
         
@@ -227,6 +239,9 @@ const Camera = (props) => {
           //}}
           }
         }, 10000 / 20);
+            // THERE IS A CALL, LET'S ANIMATE THE DIV IN
+        cameraAnimation.play();
+        cameraAnimationDown.play();
       })
     };
   }, [clientId]);

@@ -11,23 +11,14 @@ const Messenger = (props) => {
   const [language, setLanguage] = useState('EN');
   const [translate, setTranslate] = useState(false);
 
-  const [messageData, setMessageData] = useState([{
-    sender: 'caller',
-    message: "Please help! A man broke into my house!",
-    time: '8:00PM'
-  },
-  {
-    sender: 'responder',
-    message: "I'll send help right away. Where are you right now?",
-    time: '8:01PM' 
-  }]);
+  const [messageData, setMessageData] = useState([]);
 
   const sendMessage = () => {
     if (value !== '') {
       const tempMessageData = [...messageData, {
         sender: 'responder',
         message: value,
-        time: '8:07PM'
+        time: '7:14PM'
       }]
       props.socket.emit('chatMessage', {
         user_type: 'responder',
@@ -47,7 +38,7 @@ const Messenger = (props) => {
         setMessageData(prevState => [...prevState, {
           sender: 'caller',
           message: data.text,
-          time: '8:06PM'
+          time: '7:14PM'
         }]);
       } else {
         console.log('translating');
