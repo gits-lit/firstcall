@@ -7,6 +7,8 @@ import messagebutton from '../../assets/message-button.png';
 
 import './style.scss'
 
+import anime from 'animejs';
+let messagesAnimation;
 const Messages = (props) => {
   const [value, setValue] = useState('');
   const [language, setLanguage] = useState('EN');
@@ -22,6 +24,19 @@ const Messages = (props) => {
     message: "I'll send help right away. Where are you right now?",
     time: '8:01PM' 
   }]);
+
+  useEffect(() => {
+    // Animations to ransition from log to dial
+    messagesAnimation = anime({
+      targets: '.messages',
+      translateY: 0,
+      duration: 2000,
+      loop: false,
+      autoplay: false,
+      easing: 'easeInOutSine'
+    });
+  }, [])
+
 
   const sendMessage = () => {
     if (value !== '') {
@@ -44,14 +59,14 @@ const Messages = (props) => {
     props.socket.removeListener('message');
     props.socket.on('message', async (data) => {
       if (!translate) {
-        console.log('nto translating')
+        //console.log('nto translating')
         setMessageData(prevState => [...prevState, {
           sender: 'caller',
           message: data.text,
           time: '8:06PM'
         }]);
       } else {
-        console.log('translating');
+        //console.log('translating');
         const response = await fetch(`https://firstcall-snu.herokuapp.com/api/translate?text=${data.text}&to=${language.toLowerCase()}`, {
           method: 'GET',
           headers: {
@@ -106,10 +121,13 @@ const Messages = (props) => {
   }
   
   return (
+    <div className="messages">
     <div className="sub-container">
       <div className="header">
         <h1 className="title">Messages</h1>
-        <img src={arrow} alt="arrow" className="arrow" />
+        <img src={arrow} alt="arrow" className="arrow" onClick={() => {
+          messagesAnimation.reverse();
+        }}/>
       </div>
       <div className="messenger">
         <div className="translate-tab">
@@ -148,6 +166,7 @@ const Messages = (props) => {
         </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

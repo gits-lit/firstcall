@@ -3,6 +3,19 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: none;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
   
   .back {
       position: absolute; 
@@ -14,14 +27,27 @@
   .webcam-video {
     position: absolute;
     z-index: -10;
-    left: -40%;
+    //left: -40%;
     top: 5%;
     height: 90%;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
   }
 
   .call-button-three {
     position: absolute;
-    top: 50%;
+    bottom: 0;
+    right: 0;
+    z-index: 9999999999999999999;
+    //visibility: hidden !important;
+    background-color: rgba(0,0,0,0);
+    color: rgba(0,0,0,0);
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
   }
   .test-input {
     position: absolute;
