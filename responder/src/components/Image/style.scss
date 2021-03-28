@@ -16,4 +16,18 @@
     object-fit: cover;
     object-position: center;
   }
+
+  .image-text-box {
+    position: absolute;
+    bottom: 20px;
+    background-color: white;
+    left: 5vw;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+    width: 16vw;
+    border: 1px solid #DFDFDF;
+    padding: 5px 10px;
+    text-align: center;
+  }
 }

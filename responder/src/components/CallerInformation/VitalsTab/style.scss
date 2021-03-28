@@ -1,6 +1,39 @@
 .vitals-tab {
   position: relative;
 
+  .current {
+    top: 5px;
+    position: absolute;
+    right: 10%;
+    line-height: 100%;
+
+    &::before {
+      content: '';
+      border: 1px solid #333333;
+      background-color: #85EC6B;
+      position: absolute;
+      left: -15px;
+      width: 10px;
+      height: 10px;
+      top: 2px;
+      border-radius: 100%;
+    }
+  }
+
+  .current-bpm {
+    top: 30px;
+    position: absolute;
+    right: 10%;
+  }
+
+  .emotion-header {
+    margin-top: 0 !important;
+  }
+  .full-emotions {
+    position: relative;
+    top: -20px;
+  }
+
   .emotions-section {
     align-items: center;
     display: flex;
@@ -15,11 +48,14 @@
       height: 5.2vw;
     }
 
+
+
     .emotions {
       justify-content: center;
       align-items: center;
       height: 5.2vw;
       width: 100%;
+
 
       .emotion {
         position: relative;

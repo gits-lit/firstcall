@@ -159,17 +159,10 @@ const Camera = (props) => {
             if (detections2 && detections2.expressions) {
               let mood = 'angry';
               let max = 0;
-              Object.keys(detections2.expressions).forEach(key => {
-                if (detections2.expressions[key] > max) {
-                  max = detections2.expressions[key];
-                  mood = key;
-                }
-              });
-              console.log(mood);
-              console.log(heartRate);
+              console.log(detections2.expressions);            
             }
           }
-        }, 1000)
+        }, 10000)
 
       interval = setInterval(async () => {
         //capture();
@@ -205,7 +198,7 @@ const Camera = (props) => {
             //#0761FF -53.27%, #FF59F8 89.25%, #AE72FF 139.44%
             ctx.lineWidth = "6";
             ctx.strokeStyle = gradient;
-            ctx.rect(x, y, box.width, height);
+            ctx.rect(box.x, box.y, box.width, box.height);
             const foreheadCoords = utils.getForeheadCoords(box.x, box.y, box.width, box.height);
 
             ctx.stroke();

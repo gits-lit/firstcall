@@ -10,6 +10,7 @@ import Image from '../components/Image';
 const DialPage = (props) => {
   const [responderData, setResponderData] = useState([]);
   const [image, setImage] = useState([]);
+  const [emotions, setEmotions] = useState([]);
 
   const getAllResponders = async () => {
     const response = await fetch('http://firstcall-snu.herokuapp.com/api/responders', {
@@ -34,11 +35,11 @@ const DialPage = (props) => {
 
   return (
     <div>
-      <Camera socket={props.socket} startTakingInCalls={props.startTakingInCalls}/>
+      <Camera setEmotions={setEmotions} socket={props.socket} startTakingInCalls={props.startTakingInCalls}/>
       <DialHeader />
       <Contact socket={props.socket}/>
       <DeployHelp responderData={responderData}/>
-      <CallerInformation image={image} socket={props.socket}/>
+      <CallerInformation emotions={emotions} image={image} socket={props.socket}/>
       <Image setImage={setImage} socket={props.socket}/>
     </div>
   )

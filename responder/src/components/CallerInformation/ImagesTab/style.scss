@@ -1,0 +1,17 @@
+.images-tab {
+  padding: 20px 10%;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+  .image {
+    margin-bottom: 20px;
+    .image-name {
+      display: inline-block;
+    }
+    .image-score {
+      display: inline-block;
+      float: right;
+    }
+  }
+}

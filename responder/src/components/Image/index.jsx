@@ -52,6 +52,7 @@ const Images = (props) => {
   return (
     <div ref={mainRef }className="images">
       <img ref={imageRef} />
+      <div className="image-text-box">Image Received!</div>
     </div>
   )
 }

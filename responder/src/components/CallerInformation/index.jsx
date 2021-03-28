@@ -8,20 +8,6 @@ import './style.scss';
 
 const CallerInformation = (props) => {
   const [selected, setSelected] = useState('Info');
-  const [emotions, setEmotions] = useState([]);
-
-  useEffect(() => {
-    setEmotions([{
-      feeling: 'Happy',
-      certainty: '97%'
-    }, {
-      feeling: 'Sad',
-      certainty: '95%'
-    }, {
-      feeling: 'Okay',
-      certainty: '50%'
-    }])
-  }, [])
 
   return (
     <div className="caller-information">
@@ -57,7 +43,7 @@ const CallerInformation = (props) => {
       </div>
       {
         selected === 'Info' ? <InfoTab socket={props.socket}/> :
-        selected === 'Vitals' ? <VitalsTab emotions={emotions}/> : 
+        selected === 'Vitals' ? <VitalsTab emotions={props.emotions}/> : 
         <ImagesTab image={props.image} socket={props.socket}/>
       }
     </div>
