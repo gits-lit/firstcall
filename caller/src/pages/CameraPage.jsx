@@ -1,9 +1,9 @@
 import Camera from '../components/Camera';
 
-const CameraPage = () => {
+const CameraPage = (props) => {
   return (
     <div className="CameraPage">
-      <Camera />
+      <Camera setClick={props.setClick} />
     </div>
   );
 };

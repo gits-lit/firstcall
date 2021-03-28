@@ -30,9 +30,7 @@ const MainPage = () => {
       ) : click === 'info' ? (
         <SelfInfo socket={socket} />
       ) : click === 'camera' ? (
-        <div>
-          <CameraPage />
-        </div>
+        <CameraPage setClick={setClick} />
       ) : click === 'help' ? (
         <div>
           <HelpETA />

@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
+import { Button } from 'antd';
+import CameraPic from '../../assets/camera.svg';
+import BackBubble from '../../assets/back-bubble.svg';
 
 import Heart from '../Heart';
 
@@ -35,7 +38,7 @@ const servers = {
 const pc = new RTCPeerConnection(servers);
 let localStream = null;
 
-const CameraComponent =  (props) => {
+const CameraComponent = (props) => {
   const webcamRef = useRef(null);
   const webcamRefTwo = useRef(null);
   const inputRef = useRef(null);
@@ -44,7 +47,7 @@ const CameraComponent =  (props) => {
   const videoConstraints = {
     width: 900,
     height: 900,
-    facingMode: "user"
+    facingMode: 'user',
   };
 
   const startCam = async () => {
@@ -106,6 +109,9 @@ const CameraComponent =  (props) => {
   return (
     <div className="cameras">
       <h1>T</h1>
+      <div className="back" onClick={() => props.setClick('')}>
+        <img src={BackBubble} />
+      </div>
       <Heart />
       <video
         ref={webcamRef}
@@ -117,6 +123,10 @@ const CameraComponent =  (props) => {
       <button className="call-button-three" onClick={startCam}>
         Start Own Cam
       </button>
+      <Button className="picture">
+        <img src={CameraPic} style={{ marginRight: '8px' }} />
+        Take Picture
+      </Button>
     </div>
   );
 };

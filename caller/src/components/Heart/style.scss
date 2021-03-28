@@ -1,7 +1,7 @@
 .Heart {
   position: absolute;
   width: 175px;
-  height: 120px;
+  height: 145px;
   right: 5%;
   top: 100px;
   background: white;
@@ -16,14 +16,45 @@
   .sub-title {
     margin: 0px;
     font-weight: 400;
+    font-size: 12px;
   }
 
   .row {
     display: flex;
+    width: 100%;
     justify-content: space-between;
+    margin-top: 8px;
     h4 {
       margin: 0px;
+      line-height: 18px;
     }
+
+    .bpm {
+      width: 50%;
+
+      h4 {
+        font-size: 18px;
+        
+      }
+      p {
+        width: 100%;
+        line-height: 12px;
+        margin-bottom: 12px;
+      }
+    }
+
+    .avg {
+      width: 40%;
+    }
+  }
+
+  .start {
+    margin-top: 0px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    // background: #40EB5B;
+    color: white;
   }
 
 

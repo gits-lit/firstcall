@@ -1,3 +1,4 @@
+import { Button } from 'antd';
 import './style.scss';
 
 const Heart = (props) => {
@@ -9,12 +10,13 @@ const Heart = (props) => {
       <div className="row">
         <div className="bpm">
           <h4>
-            <strong>N/A</strong>
+            <strong>120</strong>
           </h4>
-          <p>Heart Rate</p>
+          <p>BPM</p>
         </div>
-        <h4>Above Average</h4>
+        <h4 className="avg">Above Average</h4>
       </div>
+      <Button type="primary" className="start">Start</Button>
     </div>
   );
 };
