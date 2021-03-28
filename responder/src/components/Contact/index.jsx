@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import './style.scss';
 import Messenger from './Messenger';
+import Transcripts from './Transcripts';
 
 const Contact = () => {
   const [transcript, setTranscript] = useState(false);
@@ -22,7 +23,7 @@ const Contact = () => {
         }}>
         <h1>Transcript</h1>
       </div>
-      {transcript ? null : <Messenger />}
+      {transcript ? <Transcripts />: <Messenger />}
     </div>
   )
 }
