@@ -19,7 +19,7 @@ const ResponderModal = (props) => {
     interval = setInterval(() => {
       setSeconds(prevState => prevState - 1);
     }, 1000);
-   }, [props.visibleModal])
+   }, [props.visibleModal]);
 
    useEffect(() => {
     if (seconds <= 0 && interval) {
@@ -44,13 +44,14 @@ const ResponderModal = (props) => {
         <div className="time-limit">
           <h1><p className="time">{seconds}</p><p>Seconds</p></h1>
         </div>
-
       </div>
       <div>
         <Button className="btn" size="large"
           onClick={() => {
             props.setIsModalVisible(false);
             props.setToggleStatus(true);
+            props.setStartTakingInCalls(true);
+            props.setCall(-117.23080699422314, 32.862532257842105)
           }}
         >
           Accept

@@ -10,7 +10,7 @@ const DeployHelp = (props) => {
   const [searchUnit, setSearchUnit] = useState('');
 
   //temp route log
-  const tempRequested = [{
+  /*const tempRequested = [{
     status:'Requested',
     unitId:'DPQO32',
     type:'Police',
@@ -37,7 +37,8 @@ const DeployHelp = (props) => {
     type:'Police',
     eta:'Arrived',
     dispatch:'2:12PM'
-  }]
+  }]*/
+  const tempRequested = [];
 
   return (
     <div className="deploy-help">
@@ -46,15 +47,15 @@ const DeployHelp = (props) => {
         <div className="option-num">
           <div className="requested-option">
             <div className="requested-circle"></div>
-            <div className="option-description"><h1>{2}</h1><span>Requested</span></div>
+            <div className="option-description"><h1>{0}</h1><span>Requested</span></div>
           </div>
           <div className="option">
             <div className="enroute-circle"></div>
-            <div className="option-description"><h1>{2}</h1><span>Enroute</span> </div>
+            <div className="option-description"><h1>{0}</h1><span>Enroute</span> </div>
           </div>
           <div className="option">
             <div className="onsight-circle"></div>
-            <div className="option-description"><h1>{2}</h1><span>On-Site</span></div>
+            <div className="option-description"><h1>{0}</h1><span>On-Site</span></div>
           </div>
         </div>
       </div>

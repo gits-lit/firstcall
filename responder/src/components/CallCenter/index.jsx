@@ -22,12 +22,31 @@ const CallCenter = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => {
+      props.setAccepting(prevState => true);
+      anime({
+        targets: '.log-status',
+        opacity: '1',
+        translateY: [{value: 0, easing: 'easeInCubic'}, {value: -25, easing: 'easeOutCubic'}],
+        direction: 'alternate',
+        easing: 'easeInExpo',
+        duration: 0,
+        loop: false,
+        autoplay: true
+      });
+      setTimeout(() => {
+        setIsModalVisible(prevState => true);
+      }, 1000);
+    }, 500000)
+  }, [])
+
+  useEffect(() => {
     let completedStatus = 0;
     let newStatus = 0;
     let ongoingStatus = 0;
 
     for (let i = 0; i < props.data.length; i++) {
-      if (props.data[i].status === '0') {
+      if (props.data[i].status === '0' && props.accepting) {
         newStatus += 1;
       } else if (props.data[i].status === '1' || props.data[i].status === '2') {
         ongoingStatus += 1;
@@ -38,7 +57,7 @@ const CallCenter = (props) => {
     setCompleted(completedStatus);
     setNewCount(newStatus);
     setOngoingCount(ongoingStatus);
-  }, [props.data]);
+  }, [props.data, props.accepting]);
 
   useEffect(() => {
     if (initialAnimation && props.data.length > 1) {
@@ -77,17 +96,13 @@ const CallCenter = (props) => {
       <div className="call-center-header">
         <h1 className="center-name">Call Center</h1>
         <div className="toggle-button">
-          <Switch checked={toggleStatus}
+          <Switch
             onChange={(e) => {
               setToggleStatus(!toggleStatus);
-              if (toggleStatus===false) {
-                setIsModalVisible(true);
-              }
-              else {
-                setIsModalVisible(false);
-              }
             }}/>
           <ResponderModal visibleModal={isModalVisible} seconds={5}
+          setStartTakingInCalls={props.setStartTakingInCalls}
+          setCall={props.setCall}
             setIsModalVisible={(visibleInput) => {
               setIsModalVisible(visibleInput);
             }}
@@ -133,6 +148,7 @@ const CallCenter = (props) => {
             const hours = date.getHours() % 12;
             const ampm = date.getHours() > 11 ? 'PM': 'AM';
             if (
+              (!(user.status === '0' && !props.accepting)) &&
               (filter === 'All Cases' ||
               (filter === 'New' && user.status === '0') ||
               (filter === 'Ongoing' && user.status === '1') ||

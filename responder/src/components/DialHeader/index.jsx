@@ -10,7 +10,7 @@ const DialHeader = (props) => {
     <div className="dial-header">
       <div className="flex-container">
         <h1>
-          <div className="status-heading">Ongoing Call</div> | Case #
+          <div className="status-heading">Ongoing Call</div> | Case #4878E3 | 626-714-7519
         </h1>
         <div className="icon-container">
           <Mute/>

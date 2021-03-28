@@ -74,6 +74,7 @@ const MapComponent = (props) => {
     >
       {
         props.data.map(user => {
+          if (!(user.status === '0' && !props.accepting)) {
           return (
             props.markerVisibility && 
             <Marker
@@ -91,7 +92,7 @@ const MapComponent = (props) => {
             />
           </Marker>
           )
-          })
+          }})
       }
     </Map>
     </div>

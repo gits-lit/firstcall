@@ -5,6 +5,7 @@ import CallCenter from '../components/CallCenter';
 
 const LogPage = (props) => {
   const [data, setData] = useState([]);
+  const [accepting, setAccepting] = useState(false);
 
   const getAllUsers = async () => {
     const response = await fetch('https://firstcall-snu.herokuapp.com/api/users', {
@@ -31,11 +32,12 @@ const LogPage = (props) => {
   return (
     <div>
       <Map
+        accepting={accepting}
         markerVisibility={props.markerVisibility}
         setCall={props.setCall}
         dial={props.dial}
         data={data}/>
-      <CallCenter data={data} setStartTakingInCalls={props.setStartTakingInCalls}/>
+      <CallCenter setCall={props.setCall} data={data} accepting={accepting} setAccepting={setAccepting} setStartTakingInCalls={props.setStartTakingInCalls}/>
     </div>
   )
 }
