@@ -123,6 +123,7 @@ const CallCenter = (props) => {
               ) {
                 return (
                   <Log status={user.status} caseId={user.caseId}
+                  setStartTakingInCalls={props.setStartTakingInCalls}
                   time={`${hours}:${minutes} ${ampm}`} location={user.address}/>
                 )
             }

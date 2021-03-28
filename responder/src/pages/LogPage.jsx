@@ -35,7 +35,7 @@ const LogPage = (props) => {
         setCall={props.setCall}
         dial={props.dial}
         data={data}/>
-      <CallCenter data={data}/>
+      <CallCenter data={data} setStartTakingInCalls={props.setStartTakingInCalls}/>
     </div>
   )
 }

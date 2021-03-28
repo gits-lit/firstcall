@@ -1,39 +1,40 @@
-.webcam-video {
+.camera {
+  height: calc(81.5vh - 20px);
+  background-color: white;
+  border: 1px solid #DFDFDF;
+  border-radius: 6px;
+  //bottom: 20px;
+  bottom: calc(20px + 1000px);
+  display: none;
+  height: calc(81.5vh - 20px);
+  margin: 0 1.5vw 0 2vw;
+  overflow: hidden;
   position: absolute;
-  top: 0;
-  z-index: 10000000000;
-}
+  width: 26vw;
 
-.webcam-video-two {
-  position: absolute;
-  top: 0;
-  left: 600px;
-  z-index: 2000000000000;
-}
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    //object-position: center;
+  }
 
-.call-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000000000000;
-}
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 
-.call-button-two {
-  position: absolute;
-  top: 0;
-  left: 100px;
-  z-index: 2000000000000;
-}
-
-.call-button-three {
-  position: absolute;
-  top: 0;
-  left: 200px;
-  z-index: 2000000000000;
-}
-
-.test-input {
-  position: absolute;
-  top: 100px;
-  z-index: 2000000000000;
+  .temp-canvas {
+    position: absolute;
+    top: 0;
+    left: 500px;
+    width: 2000px;
+    height: 2000px;
+    z-index: 9999999999;
+  }
 }
