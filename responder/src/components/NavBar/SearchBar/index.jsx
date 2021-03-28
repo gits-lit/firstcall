@@ -12,7 +12,7 @@ const SearchBar = (props) => {
       <img className="location" src={location} alt="location pin"/>
       <input
         onChange={e => setAddress(e.target.value)}
-        placeholder='8036 W 3rd St, Los Angeles, CA 90048'
+        placeholder='Search for any location here'
         type="text"
         value={address}
         />

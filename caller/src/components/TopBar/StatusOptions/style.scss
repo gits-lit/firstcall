@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap');
+
+.status-options {
+  font-family: "Lexend", sans-serif;
+  align-items: center;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  margin-top: 2vh;
+  margin-left: 3vw;
+
+  .option-num {
+    display: inline-flex;
+    margin-right: 7px;
+    justify-content: space-between;
+    //width: calc(100% - 135px);
+    width:100%;
+
+    .option {
+      display: inline-flex;
+      height: 35px;
+      //width: calc(33% - 10px);
+      width: 100%;
+
+      .requested-circle, .enroute-circle, .onsite-circle {
+        border-radius: 50%;
+        height: 13px;
+        margin-right: 10px;
+        width: 13px;
+      }
+
+      .requested-circle {
+        background-color: #F07373;
+      }
+      .enroute-circle {
+        background-color: #689FF2;
+
+      }
+      .onsite-circle {
+        background-color: #5AE471;
+
+      }
+
+      .option-description {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 300;
+        line-height: 120%;
+        width: 0;
+        span {
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

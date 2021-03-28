@@ -30,7 +30,7 @@
 
       img {
         margin-right: 4px;
-        width: 55%;
+        width: 45%;
       }
 
       &::after {
@@ -70,10 +70,9 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 5vw;
-
+    width: 100%;
     img {
-      width: 70%;
+      width: 40%;
     }
   }
 }

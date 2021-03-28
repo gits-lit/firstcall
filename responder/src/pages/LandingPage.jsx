@@ -1,9 +1,9 @@
-import React from 'react';
+import Landing from '../components/Landing';
 
 const LandingPage = () => {
   return (
     <div>
-      Landing Page
+      <Landing />
     </div>
   )
 }
