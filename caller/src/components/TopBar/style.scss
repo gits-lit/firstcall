@@ -9,6 +9,8 @@
   align-items: center;
   padding: 0 5vw;
   border-bottom: 1px solid #DFDFDF;
+  position: fixed;
+  z-index: 100;
 
   .logo {
     height: 50%;
