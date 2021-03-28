@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
+import HelpETA from '../components/HelpETA'
 import NavBar from '../components/NavBar'
 import TopBar from '../components/TopBar'
 
 const MainPage = () => {
-  const [click, setClick] = useState('log');
+  const [click, setClick] = useState('message');
   return (
     <div>
     <TopBar />
@@ -16,7 +17,7 @@ const MainPage = () => {
     {
       click === 'message' ?
         <div>
-          message
+          <HelpETA/>
         </div>
       : click === 'info' ?
         <div>

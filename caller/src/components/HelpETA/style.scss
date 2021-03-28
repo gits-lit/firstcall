@@ -1,0 +1,28 @@
+.help-container {
+  border-top: 1px solid #DFDFDF;
+  border-radius: 26px 26px 0 0;
+  bottom: 8%;
+  height: 55vh; //25% left for map
+  padding: 20px 5vw;
+  position: absolute;
+  width: 90vw;
+
+  .help-header {
+    font-size: 28px;
+    font-weight: 500;
+    height: 8%;
+    margin: 20px 0 25px 0;
+  }
+
+  .route-logs {
+    height: calc(92% - 40px);
+    overflow: scroll;
+
+    .route-status-header {
+      font-size: 16px;
+      line-height: 130%;
+      justify-content: left;
+      margin: 15px 0 0 !important;
+    }
+  }
+}
